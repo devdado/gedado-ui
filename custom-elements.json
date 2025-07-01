@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/components/buttons/text-button.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ArtTextButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Click'",
+              "attribute": "text"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "ButtonSize"
+              },
+              "default": "'base'",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "Variant"
+              },
+              "default": "'primary'",
+              "attribute": "variant"
+            },
+            {
+              "kind": "field",
+              "name": "leftIcon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "leftIcon"
+            },
+            {
+              "kind": "field",
+              "name": "rightIcon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "rightIcon"
+            },
+            {
+              "kind": "method",
+              "name": "setSizeClasses",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "{ text: string; icon: string; padding: string }"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setVariantClasses",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Click'",
+              "fieldName": "text"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "ButtonSize"
+              },
+              "default": "'base'",
+              "fieldName": "size"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "Variant"
+              },
+              "default": "'primary'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "leftIcon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "leftIcon"
+            },
+            {
+              "name": "rightIcon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "rightIcon"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "art-text-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ArtTextButton",
+          "declaration": {
+            "name": "ArtTextButton",
+            "module": "src/components/buttons/text-button.component.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "art-text-button",
+          "declaration": {
+            "name": "ArtTextButton",
+            "module": "src/components/buttons/text-button.component.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

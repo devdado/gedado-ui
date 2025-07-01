@@ -1,26 +1,52 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    /* Base Options */
+    "target": "ES2022" /* Especifica la versión de ECMAScript para el código de salida. ES2022 es un buen equilibrio para navegadores modernos. */,
+    "module": "ESNext" /* Especifica el sistema de módulos para el código de salida. 'ESNext' es ideal para que los bundlers como Vite lo procesen. */,
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ] /* Bibliotecas de tipo para incluir en la compilación. 'DOM' y 'DOM.Iterable' son esenciales para el desarrollo web. */,
+    "baseUrl": "." /**/,
+    "useDefineForClassFields": false /* Controla el comportamiento de las propiedades de clase. 'false' es mejor para la compatibilidad con decoradores y Lit. */,
+    "experimentalDecorators": true /* Habilita la sintaxis experimental de decoradores, necesaria para `@customElement`, `@property`, etc. */,
+    "emitDecoratorMetadata": true /* Emite metadatos de diseño para decoradores. A menudo necesario junto con `experimentalDecorators`. */,
+    /* Modules */
+    "moduleResolution": "bundler" /* Estrategia de resolución de módulos. 'bundler' es la opción recomendada para bundlers como Vite/Rollup. */,
+    "allowImportingTsExtensions": true /* Permite importaciones que incluyan extensiones de archivo TypeScript (.ts, .tsx), que luego Vite manejará. */,
+    "resolveJsonModule": true /* Permite importar módulos con una extensión `.json`, que se convertirán en objetos TypeScript. */,
+    "isolatedModules": true /* Asegura que cada archivo pueda ser compilado de forma independiente, esencial para bundlers que no realizan un análisis de todo el proyecto. */,
+    "noEmit": true /* **Importante para Vite:** No emite archivos JavaScript. Vite se encarga de la transpilación de TS a JS. */,
+    "verbatimModuleSyntax": true /* Garantiza que los imports y exports en el código emitido sean exactamente los mismos que en el código fuente. Ayuda a bundlers y a Web Components con extensiones. */,
+    "forceConsistentCasingInFileNames": true /* Fuerza que el uso de mayúsculas y minúsculas en las rutas de archivo sea consistente. */,
+    /* Type Declaration Options */
+    "declaration": true /* **Crucial para librerías:** Genera archivos `.d.ts` (archivos de declaración de tipo) para tus módulos. */,
+    "declarationMap": true /* Genera sourcemaps para los archivos `.d.ts`, útiles para la depuración de tipos. */,
+    //"declarationDir": "./dist/types", // Specifies the output directory for .d.ts files
+    //"emitDeclarationOnly": true /* **Importante para librerías con Vite:** Solo emite archivos `.d.ts`, no archivos `.js`. */,
+    //"outDir": "./dist" /* Directorio donde se emitirán los archivos `.d.ts`. */,
+    "rootDir": "./src" /* Especifica la ubicación de los archivos TypeScript de entrada. */,
+    /* Linting & Strictness */
+    "strict": true /* Habilita todas las opciones de verificación de tipo estricta. ¡Muy recomendado para la calidad del código! */,
+    "noUnusedLocals": true /* Informa sobre variables locales no utilizadas. */,
+    "noUnusedParameters": true /* Informa sobre parámetros de función no utilizados. */,
+    "noFallthroughCasesInSwitch": true /* Informa sobre casos de switch sin `break` entre ellos. */,
+    "noUncheckedIndexedAccess": true /* Agrega propiedades de índice 'undefined' a las propiedades de acceso. */,
+    "noPropertyAccessFromIndexSignature": true /* Informa sobre el acceso a propiedades con notación de puntos en tipos con firmas de índice. */,
+    "noImplicitReturns": true /* Informa sobre funciones donde no todos los caminos de código devuelven un valor. */,
+    "noUncheckedSideEffectImports": true /* Garantiza que las importaciones con efectos secundarios se declaren explícitamente. */,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+    }
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

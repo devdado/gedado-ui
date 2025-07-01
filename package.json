@@ -1,24 +1,49 @@
 {
   "name": "artemis-ui",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Artemis UI",
   "type": "module",
+  "main": "dist/artemis-ui.umd.js",
+  "module": "dist/artemis-ui.es.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "build:cem": "custom-elements-manifest analyze --globs 'src/components/**/*.ts' --litelement --outdir . --exclude src/components/index.ts",
     "preview": "vite preview",
     "format": "prettier --write \"**/*.{ts,js,html,css,json,md}\"",
-    "check-format": "prettier --check \"**/*.{ts,js,html,css,json,md}\""
+    "check-format": "prettier --check \"**/*.{ts,js,html,css,json,md}\"",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
-    "lit": "^3.3.0"
+    "lit": "^3.3.0",
+    "material-symbols": "^0.31.9"
   },
   "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.10.4",
     "@tailwindcss/vite": "^4.1.10",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
     "tailwindcss": "^4.1.10",
     "typescript": "~5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "files": [
+    "dist",
+    "custom-elements-manifest.json"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/artemis-ui.es.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/artemis-ui.umd.js"
+      }
+    },
+    "./dist/types/*": "./dist/types/*"
   }
 }
