@@ -43,7 +43,6 @@
         "types": "./dist/types/index.d.ts",
         "default": "./dist/artemis-ui.umd.js"
       }
-    },
-    "./dist/types/*": "./dist/types/*"
+    }
   }
 }
