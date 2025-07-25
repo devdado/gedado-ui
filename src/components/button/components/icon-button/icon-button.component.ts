@@ -25,8 +25,7 @@ export class ArtIconButton extends BaseButton implements IIconButton {
         type="button"
         class="${this.fixedClasses} ${this.paddingClasses} ${this.variantClasses} ${this
           .borderClasses} disabled:bg-gray-200 disabled:text-gray-300"
-        ?disabled="${this.disabled}"
-      >
+        ?disabled="${this.disabled}">
         <span class="${this.iconSizeClasses} material-symbols-rounded">${this.icon}</span>
       </button>
     `;

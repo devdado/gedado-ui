@@ -25,16 +25,15 @@ export class ArtTextButton extends BaseButton implements ITextButton {
         type="button"
         class="${this.fixedClasses} ${this.paddingClasses} ${this.variantClasses} ${this
           .borderClasses} shadow-lg disabled:bg-gray-200 disabled:text-gray-300"
-        ?disabled="${this.disabled}"
-      >
+        ?disabled="${this.disabled}">
         ${when(
           this.leftIcon,
-          () => html`<span class="${this.iconSizeClasses} material-symbols-rounded">home</span>`,
+          () => html`<span class="${this.iconSizeClasses} material-symbols-rounded">home</span>`
         )}
         <span class="${this.fontSizeClasses} leading-none">${this.text}</span>
         ${when(
           this.rightIcon,
-          () => html`<span class="${this.iconSizeClasses} material-symbols-rounded">home</span>`,
+          () => html`<span class="${this.iconSizeClasses} material-symbols-rounded">home</span>`
         )}
       </button>
     `;

@@ -37,16 +37,9 @@
     "noImplicitReturns": true /* Informa sobre funciones donde no todos los caminos de código devuelven un valor. */,
     "noUncheckedSideEffectImports": true /* Garantiza que las importaciones con efectos secundarios se declaren explícitamente. */,
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
+      "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

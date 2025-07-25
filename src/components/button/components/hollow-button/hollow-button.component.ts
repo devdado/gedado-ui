@@ -25,8 +25,7 @@ export class ArtHollowButton extends BaseButton implements IHollowButton {
         type="button"
         class="${this.fixedClasses} ${this.paddingClasses} ${this.variantClasses} ${this
           .borderClasses} border bg-transparent disabled:border-gray-300 disabled:text-gray-300"
-        ?disabled="${this.disabled}"
-      >
+        ?disabled="${this.disabled}">
         <span class="${this.fontSizeClasses} leading-none">${this.text}</span>
       </button>
     `;

@@ -21,8 +21,7 @@ export class ArtFlatButton extends BaseButton implements IFlatButton {
         type="button"
         class="${this.fixedClasses} ${this.paddingClasses} ${this
           .variantClasses} bg-transparent disabled:text-gray-300"
-        ?disabled="${this.disabled}"
-      >
+        ?disabled="${this.disabled}">
         <span class="${this.fontSizeClasses} leading-none">${this.text}</span>
       </button>
     `;
