@@ -1,7 +1,10 @@
-# Ignore artifacts:
-build/
-dist/
-node_modules/
+/build
+/dist
+/node_modules
+/storybook-static
+pnpm-lock.yaml
+pnpm-workspace.yaml
 
 # Ignore dotfiles (except .prettierrc)
 .*
+

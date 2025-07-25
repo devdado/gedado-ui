@@ -1,79 +1,122 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Lit + TS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./src/styles/tailwind.css" />
-    <link rel="stylesheet" href="./src/styles/index.css" />
-    <script type="module" src="./src/components"></script>
-  </head>
 
-  <body class="bg-surface dark:bg-surface-dark text-default-text dark:text-default-text-dark">
-    <section class="container mx-auto px-4">
-      <section class="flex flex-col gap-5">
-        <h1 class="text-accent-primary text-3xl font-semibold uppercase">Buttons</h1>
-        <hr class="border-accent-primary border" />
-        <article class="flex flex-col gap-5">
-          <h2 class="text-accent-primary text-xl">Text Buttons</h2>
-          <div class="flex flex-wrap justify-center gap-2">
-            <art-text-button text="disabled" disabled="true"></art-text-button>
-            <art-text-button text="primary"></art-text-button>
-            <art-text-button variant="secondary" text="secondary"></art-text-button>
-            <art-text-button variant="success" text="success"></art-text-button>
-            <art-text-button variant="warning" text="warning and a long message"></art-text-button>
-            <art-text-button variant="error" text="error"></art-text-button>
-            <art-text-button variant="info" text="info"></art-text-button>
-          </div>
-        </article>
-        <article class="flex flex-col gap-5">
-          <h2 class="text-accent-primary text-xl">Icon Buttons</h2>
-          <div class="flex flex-wrap justify-center gap-2">
-            <art-icon-button disabled></art-icon-button>
-            <art-icon-button></art-icon-button>
-            <art-icon-button variant="secondary"></art-icon-button>
-            <art-icon-button variant="success"></art-icon-button>
-            <art-icon-button variant="warning"></art-icon-button>
-            <art-icon-button variant="error"></art-icon-button>
-            <art-icon-button variant="info"></art-icon-button>
-          </div>
-        </article>
-        <article class="flex flex-col gap-5">
-          <h2 class="text-accent-primary text-xl">Hollow Buttons</h2>
-          <div class="flex flex-wrap justify-center gap-2">
-            <art-hollow-button text="primary" disabled></art-hollow-button>
-            <art-hollow-button text="primary"></art-hollow-button>
-            <art-hollow-button text="secondary" variant="secondary"></art-hollow-button>
-            <art-hollow-button text="success" variant="success"></art-hollow-button>
-            <art-hollow-button text="warning" variant="warning"></art-hollow-button>
-            <art-hollow-button text="error" variant="error"></art-hollow-button>
-            <art-hollow-button text="info" variant="info"></art-hollow-button>
-          </div>
-        </article>
-        <article class="flex flex-col gap-5">
-          <h2 class="text-accent-primary text-xl">Flat Buttons</h2>
-          <div class="flex flex-wrap justify-center gap-2">
-            <art-flat-button text="primary" disabled></art-flat-button>
-            <art-flat-button text="primary"></art-flat-button>
-            <art-flat-button text="secondary" variant="secondary"></art-flat-button>
-            <art-flat-button text="success" variant="success"></art-flat-button>
-            <art-flat-button text="warning" variant="warning"></art-flat-button>
-            <art-flat-button text="error" variant="error"></art-flat-button>
-            <art-flat-button text="info" variant="info"></art-flat-button>
-          </div>
-        </article>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + Lit + TS</title>
+  <link rel="stylesheet" href="./src/styles/tailwind.css" />
+  <script type="module" src="./src/components"></script>
+</head>
+
+<body class="bg-surface dark:bg-surface-dark text-default-text dark:text-default-text-dark pb-14">
+  <section class="flex flex-col gap-5 container mx-auto px-4">
+    <!-- Text Colors -->
+    <section class="flex flex-col gap-5">
+      <h1 class="text-accent-primary text-3xl font-semibold uppercase">Text Colors</h1>
+      <hr class="border-accent-primary border" />
+      <article class="flex flex-col gap-5">
+        <h1 class="text-text-default text-3xl font-semibold uppercase">Normal</h1>
+        <h1 class="text-text-muted border border-border-default text-3xl font-semibold uppercase">Muted</h1>
+        <h1 class="text-text-disabled border bg-disabled border-border-default text-3xl font-semibold uppercase">
+          Disabled
+        </h1>
+      </article>
     </section>
-  </body>
+
+    <!-- Buttons -->
+    <section class="flex flex-col gap-5">
+      <h1 class="text-accent-primary text-3xl font-semibold uppercase">Buttons</h1>
+      <hr class="border-accent-primary border" />
+      <article class="flex flex-col gap-5">
+        <h2 class="text-accent-primary text-xl">Text Buttons</h2>
+        <div class="flex flex-wrap justify-center gap-2">
+          <art-text-button text="disabled" disabled="true"></art-text-button>
+          <art-text-button text="primary"></art-text-button>
+          <art-text-button variant="secondary" text="secondary"></art-text-button>
+          <art-text-button variant="success" text="success"></art-text-button>
+          <art-text-button variant="warning" text="warning and a long message"></art-text-button>
+          <art-text-button variant="error" text="error"></art-text-button>
+          <art-text-button variant="info" text="info"></art-text-button>
+        </div>
+      </article>
+      <article class="flex flex-col gap-5">
+        <h2 class="text-accent-primary text-xl">Icon Buttons</h2>
+        <div class="flex flex-wrap justify-center gap-2">
+          <art-icon-button disabled></art-icon-button>
+          <art-icon-button></art-icon-button>
+          <art-icon-button variant="secondary"></art-icon-button>
+          <art-icon-button variant="success"></art-icon-button>
+          <art-icon-button variant="warning"></art-icon-button>
+          <art-icon-button variant="error"></art-icon-button>
+          <art-icon-button variant="info"></art-icon-button>
+        </div>
+      </article>
+      <article class="flex flex-col gap-5">
+        <h2 class="text-accent-primary text-xl">Hollow Buttons</h2>
+        <div class="flex flex-wrap justify-center gap-2">
+          <art-hollow-button text="primary" disabled></art-hollow-button>
+          <art-hollow-button text="primary"></art-hollow-button>
+          <art-hollow-button text="secondary" variant="secondary"></art-hollow-button>
+          <art-hollow-button text="success" variant="success"></art-hollow-button>
+          <art-hollow-button text="warning" variant="warning"></art-hollow-button>
+          <art-hollow-button text="error" variant="error"></art-hollow-button>
+          <art-hollow-button text="info" variant="info"></art-hollow-button>
+        </div>
+      </article>
+      <article class="flex flex-col gap-5">
+        <h2 class="text-accent-primary text-xl">Flat Buttons</h2>
+        <div class="flex flex-wrap justify-center gap-2">
+          <art-flat-button text="primary" disabled></art-flat-button>
+          <art-flat-button text="primary"></art-flat-button>
+          <art-flat-button text="secondary" variant="secondary"></art-flat-button>
+          <art-flat-button text="success" variant="success"></art-flat-button>
+          <art-flat-button text="warning" variant="warning"></art-flat-button>
+          <art-flat-button text="error" variant="error"></art-flat-button>
+          <art-flat-button text="info" variant="info"></art-flat-button>
+        </div>
+      </article>
+    </section>
+
+    <!-- Inputs -->
+    <section class="flex flex-col gap-5">
+      <h1 class="text-text-default text-3xl font-semibold uppercase">Inputs</h1>
+      <hr class="border-accent-primary border" />
+      <article class="flex flex-col gap-5">
+        <h2 class="text-accent-primary text-xl">Text Input</h2>
+        <div class="flex flex-col gap-2">
+          <div class="w-1/2">
+            <art-text-input id="firstname-input" name="firstname-input"
+              title="Value must be a lowercase string between 1 and 5 characters" label="First Name" value="Gerardo"
+              minlength="5" placeholder="Write your Firstname" required>
+            </art-text-input>
+          </div>
+          <art-text-input label="Last Name" name="lastname-input" value="heredia" pattern="[a-z]{1,10}" required>
+          </art-text-input>
+          <art-email-input label="Email" name="number-input" required></art-email-input>
+          <art-number-input label="Counter" name="number-input" step="3" min="0" required></art-number-input>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <script>
+    document.addEventListener('art-input-input', event => {
+      console.log('art-input-input', event);
+    });
+
+    document.addEventListener('art-input-change', event => {
+      console.log('art-input-change', event);
+    });
+
+    const firstnameInput = document.getElementById('firstname-input');
+    const datalist = {
+      name: 'names',
+      options: ['Gerardo', 'Daniel', 'César', 'Alonso', 'Aida', 'Diana']
+    };
+    firstnameInput.datalist = datalist;
+  </script>
+</body>
+
 </html>

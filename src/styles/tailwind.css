@@ -1,11 +1,60 @@
 @import 'tailwindcss';
 
+@layer base {
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    font-optical-sizing: auto;
+    src: url('/fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    font-optical-sizing: auto;
+    src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Material Symbols Rounded';
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: swap;
+    src: url('/fonts/material-symbols-rounded.woff2') format('woff2');
+  }
+}
+
 /** Borders */
 /** Breakpoints */
-/** Colors */
 /** Shadows */
 /** Spacing */
 /** Typography */
+
+@utility material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+
+  &.filled {
+    font-variation-settings: 'FILL' 1;
+  }
+}
+
+/** Colors */
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
@@ -24,7 +73,7 @@
     | majority of the visual real estate on most pages.
     */
   /* Primary application background */
-  --color-surface: var(--color-slate-100);
+  --color-surface: var(--color-slate-50);
   --color-surface-dark: var(--color-slate-900);
   /* Background for cards, panels */
   --color-panel: var(--color-white);
@@ -39,11 +88,16 @@
   --color-text-default: var(--color-slate-800);
   --color-text-default-dark: var(--color-slate-300);
   /* Secondary text, captions, placeholders */
-  --color-text-muted: var(--color-slate-400);
+  --color-text-muted: var(--color-slate-300);
   --color-text-muted-dark: var(--color-slate-500);
   /* Default border color */
-  --color-border-default: var(--color-slate-50);
+  --color-border-default: var(--color-slate-200);
   --color-border-default-dark: var(--color-slate-400);
+  /* Disabled, read only */
+  --color-disabled: var(--color-slate-100);
+  --color-disabled-dark: var(--color-slate-200);
+  --color-text-disabled: var(--color-slate-200);
+  --color-text-disabled-dark: var(--color-slate-500);
 
   /*
     | 10% - Accent (Key Actions / Brand Focus)
