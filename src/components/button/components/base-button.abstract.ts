@@ -1,6 +1,5 @@
 import type { Variant } from '@/models';
-import { getSharedMaterialSymbolsRoundedStyles } from '@/styles/constructable-material-symbols';
-import { getSharedTailwindStyles } from '@/styles/constructable-tailwind';
+import { getSharedTailwindStyles } from '@/styles/injectables/shared-tailwind';
 import { LitElement, css } from 'lit';
 import { property } from 'lit/decorators.js';
 import type { ButtonSize, IBaseButton } from '../types';
@@ -24,7 +23,6 @@ export abstract class BaseButton extends LitElement implements IBaseButton {
     // In Node.js (for build/SSR), it returns undefined.
     // The `|| css`` ` part provides an empty CSSResult as a fallback for Node.js,
     // ensuring the array always contains valid Lit style types.
-    getSharedMaterialSymbolsRoundedStyles() || css``,
     getSharedTailwindStyles() || css``,
   ];
 
