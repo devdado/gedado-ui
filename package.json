@@ -1,11 +1,26 @@
 {
-  "name": "artemis-ui",
+  "name": "@artemis/artemis-ui",
   "version": "0.0.1",
   "description": "Artemis UI",
   "type": "module",
   "main": "dist/artemis-ui.umd.js",
   "module": "dist/artemis-ui.es.js",
   "types": "dist/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Artemis-pets/Artemis-components.git"
+  },
+  "keywords": [
+    "lit",
+    "typescript",
+    "javascript",
+    "node",
+    "tailwind"
+  ],
+  "author": {
+    "name": "Gerardo Heredia",
+    "email": "gerardo.heredia@proton.me"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -44,5 +59,6 @@
         "default": "./dist/artemis-ui.umd.js"
       }
     }
-  }
+  },
+  "license": "MIT"
 }
