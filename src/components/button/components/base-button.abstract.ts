@@ -1,5 +1,5 @@
-import type { Variant } from '@/models';
-import { getSharedTailwindStyles } from '@/styles/injectables/shared-tailwind';
+import type { Variant } from '@/shared/models';
+import { getSharedTailwindStyles } from '@/shared/styles';
 import { LitElement, css } from 'lit';
 import { property } from 'lit/decorators.js';
 import type { ButtonSize, IBaseButton } from '../types';
