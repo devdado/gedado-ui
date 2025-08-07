@@ -27,7 +27,7 @@ export class ArtFlatButton extends BaseButton implements IFlatButton {
     `;
   }
 
-  setVariantClasses(): void {
+  protected setVariantClasses(): void {
     switch (this.variant) {
       case 'primary':
         this.variantClasses = `

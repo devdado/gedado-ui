@@ -26,7 +26,7 @@ export class ArtTextarea extends BaseControl {
     `,
   ];
 
-  renderControl() {
+  protected renderControl() {
     return html`
       <textarea
         control
@@ -48,14 +48,14 @@ export class ArtTextarea extends BaseControl {
     `;
   }
 
-  onInput(event: InputEvent) {
+  private onInput(event: InputEvent) {
     this.handleInput(event);
     if (this.autoGrow) {
       this.fitToContent();
     }
   }
 
-  fitToContent() {
+  private fitToContent() {
     this.control.style.height = 'auto';
     this.control.style.height = this.control.scrollHeight + 'px';
   }

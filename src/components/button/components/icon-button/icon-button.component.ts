@@ -31,7 +31,7 @@ export class ArtIconButton extends BaseButton implements IIconButton {
     `;
   }
 
-  setIconSizeClasses(): void {
+  protected setIconSizeClasses(): void {
     switch (this.size) {
       case 'tiny':
         this.iconSizeClasses = '!text-[16px]';
@@ -48,7 +48,7 @@ export class ArtIconButton extends BaseButton implements IIconButton {
     }
   }
 
-  setPaddingClasses(): void {
+  protected setPaddingClasses(): void {
     switch (this.size) {
       case 'tiny':
         this.paddingClasses = 'p-1';

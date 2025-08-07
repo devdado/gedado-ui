@@ -20,8 +20,12 @@ export abstract class BaseControl extends LitElement {
   // Common Validation
   @property({ type: Boolean, reflect: true }) required = false;
 
+  // Events
+  protected controlInputEventName = 'art-control-input';
+  protected controlChangeEventName = 'art-control-change';
+
   @state() protected validationMessage = '';
-  @state() protected isValid = false;
+  @state() protected isValid = true;
 
   protected baseClasses: ClassInfo = {
     'w-full': true,
@@ -88,7 +92,7 @@ export abstract class BaseControl extends LitElement {
     this.value = target.value;
     this.updateValidity();
     this.dispatchEvent(
-      new CustomEvent('art-control-input', {
+      new CustomEvent(this.controlInputEventName, {
         detail: { value: this.value },
         bubbles: true,
         composed: true,
@@ -96,9 +100,12 @@ export abstract class BaseControl extends LitElement {
     );
   }
 
-  protected handleChange(_: Event) {
+  protected handleChange(event: MouseEvent) {
+    const target = event.target as Control;
+    this.value = target.value;
+    this.updateValidity();
     this.dispatchEvent(
-      new CustomEvent('art-control-change', {
+      new CustomEvent(this.controlChangeEventName, {
         detail: { value: this.value },
         bubbles: true,
         composed: true,

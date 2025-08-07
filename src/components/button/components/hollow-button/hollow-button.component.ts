@@ -31,7 +31,7 @@ export class ArtHollowButton extends BaseButton implements IHollowButton {
     `;
   }
 
-  setVariantClasses(): void {
+  protected setVariantClasses(): void {
     switch (this.variant) {
       case 'primary':
         this.variantClasses = `
@@ -84,7 +84,7 @@ export class ArtHollowButton extends BaseButton implements IHollowButton {
     }
   }
 
-  setPaddingClasses(): void {
+  protected setPaddingClasses(): void {
     switch (this.size) {
       case 'tiny':
         this.paddingClasses = 'p-1';
