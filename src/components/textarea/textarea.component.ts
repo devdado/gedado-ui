@@ -5,12 +5,13 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
-@customElement('art-email-input')
-export class ArtEmailInput extends BaseControl {
+@customElement('art-textarea')
+export class ArtTextarea extends BaseControl {
   // UI/UX
+  @property({ type: Number }) rows?: number;
+  @property({ type: Number }) cols?: number;
   @property({ type: String }) placeholder?: string;
-  @property({ type: Boolean }) multiple = false;
-  @property({ type: Object }) datalist?: { name: string; options: string[] }; // Require "multiple"
+  @property({ type: Boolean }) autoGrow = false;
 
   // Validation
   @property({ type: Number }) minlength?: number;
@@ -25,34 +26,43 @@ export class ArtEmailInput extends BaseControl {
     `,
   ];
 
-  // Abstract
-
   renderControl() {
     return html`
-      <input
+      <textarea
         control
-        type="email"
         id="${this.name}"
         name="${this.name}"
-        title="${ifDefined(this.title)}"
+        class=${classMap({ ...this.baseClasses, ...this.validationClasses })}
+        rows="${ifDefined(this.rows)}"
+        cols="${ifDefined(this.cols)}"
         placeholder="${ifDefined(this.placeholder)}"
-        class="${classMap({ ...this.baseClasses, ...this.validationClasses })}"
         .value="${live(this.value)}"
         minlength="${ifDefined(this.minlength)}"
         maxlength="${ifDefined(this.maxlength)}"
-        inputmode="email"
-        ?multiple="${this.multiple}"
         ?readonly=${this.readOnly}
         ?required=${this.required}
         ?disabled=${this.disabled}
-        @input="${this.handleInput}"
-        @change="${this.handleChange}" />
+        @input=${this.onInput}
+        @change="${this.handleChange}">
+      </textarea>
     `;
+  }
+
+  onInput(event: InputEvent) {
+    this.handleInput(event);
+    if (this.autoGrow) {
+      this.fitToContent();
+    }
+  }
+
+  fitToContent() {
+    this.control.style.height = 'auto';
+    this.control.style.height = this.control.scrollHeight + 'px';
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'art-email-input': ArtEmailInput;
+    'art-textarea': ArtTextarea;
   }
 }

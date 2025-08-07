@@ -1,4 +1,4 @@
-import type { Variant } from '@/models/types';
+import type { Variant } from '@/shared/models';
 
 export type ButtonSize = 'tiny' | 'small' | 'base' | 'large';
 

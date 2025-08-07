@@ -1,14 +1,14 @@
-import { html } from 'lit';
+import { BaseControl } from '@/shared/base';
+import { css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 import { map } from 'lit/directives/map.js';
 import { when } from 'lit/directives/when.js';
-import { BaseInput } from '../base-input.abstract';
 
 @customElement('art-text-input')
-export class ArtTextInput extends BaseInput {
+export class ArtTextInput extends BaseControl {
   // UI/UX
   @property({ type: String }) placeholder?: string;
   @property({ type: Object }) datalist?: { name: string; options: string[] };
@@ -18,19 +18,27 @@ export class ArtTextInput extends BaseInput {
   @property({ type: Number }) maxlength?: number;
   @property({ type: String }) pattern?: string;
 
-  static styles = [...BaseInput.styles];
+  static styles = [
+    ...BaseControl.styles,
+    css`
+      :host {
+        display: block;
+      }
+    `,
+  ];
 
   // Abstract
 
   renderControl() {
     return html`
       <input
+        control
         type="text"
         id="${this.name}"
         name="${this.name}"
         title="${ifDefined(this.title)}"
         placeholder="${ifDefined(this.placeholder)}"
-        class="${classMap(this.inputClasses)}"
+        class="${classMap({ ...this.baseClasses, ...this.validationClasses })}"
         .value="${live(this.value)}"
         list="${ifDefined(this.datalist?.name)}"
         pattern="${ifDefined(this.pattern)}"
