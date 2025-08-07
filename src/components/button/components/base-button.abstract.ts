@@ -26,14 +26,14 @@ export abstract class BaseButton extends LitElement implements IBaseButton {
     getSharedTailwindStyles() || css``,
   ];
 
-  initBaseButton() {
+  protected initBaseButton() {
     this.setFontSizeClasses();
     this.setIconSizeClasses();
     this.setPaddingClasses();
     this.setVariantClasses();
   }
 
-  setIconSizeClasses(): void {
+  protected setIconSizeClasses(): void {
     switch (this.size) {
       case 'tiny':
         this.iconSizeClasses = '!text-[12px]';
@@ -50,7 +50,7 @@ export abstract class BaseButton extends LitElement implements IBaseButton {
     }
   }
 
-  setPaddingClasses(): void {
+  protected setPaddingClasses(): void {
     switch (this.size) {
       case 'tiny':
         this.paddingClasses = 'px-2.5 py-1.5';
@@ -67,7 +67,7 @@ export abstract class BaseButton extends LitElement implements IBaseButton {
     }
   }
 
-  setFontSizeClasses(): void {
+  protected setFontSizeClasses(): void {
     switch (this.size) {
       case 'tiny':
         this.fontSizeClasses = 'text-xs';
@@ -84,7 +84,7 @@ export abstract class BaseButton extends LitElement implements IBaseButton {
     }
   }
 
-  setVariantClasses(): void {
+  protected setVariantClasses(): void {
     switch (this.variant) {
       case 'primary':
         this.variantClasses = `

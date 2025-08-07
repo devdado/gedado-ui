@@ -29,7 +29,7 @@ export class ArtTextInput extends BaseControl {
 
   // Abstract
 
-  renderControl() {
+  protected renderControl() {
     return html`
       <input
         control

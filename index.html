@@ -7,6 +7,7 @@
     <title>Vite + Lit + TS</title>
     <link rel="stylesheet" href="./src/shared/styles/tailwind.css" />
     <script type="module" src="./src/components"></script>
+    <script type="module" src="./index.ts"></script>
   </head>
 
   <body class="text-default-text dark:text-default-text-dark bg-surface dark:bg-surface-dark pb-14">
@@ -87,7 +88,7 @@
         <hr class="border-accent-primary border" />
         <article class="flex flex-col gap-5">
           <h2 class="text-accent-secondary text-xl">Text Input</h2>
-          <div class="flex flex-col gap-2">
+          <div class="flex w-1/2 flex-col gap-2">
             <art-text-input
               id="firstname-input"
               name="firstname-input"
@@ -109,13 +110,13 @@
         </article>
         <article class="flex flex-col gap-5">
           <h2 class="text-accent-secondary text-xl">Email Input</h2>
-          <div class="flex flex-col gap-2">
+          <div class="flex w-1/2 flex-col gap-2">
             <art-email-input label="Email" name="number-input" required></art-email-input>
           </div>
         </article>
         <article class="flex flex-col gap-5">
           <h2 class="text-accent-secondary text-xl">Number Input</h2>
-          <div class="flex flex-col gap-2">
+          <div class="flex w-1/2 flex-col gap-2">
             <art-number-input label="Counter" name="number-input" step="3" min="0" required>
             </art-number-input>
           </div>
@@ -126,27 +127,23 @@
       <section class="flex flex-col gap-5">
         <h1 class="text-accent-primary text-3xl font-semibold uppercase">TextArea</h1>
         <hr class="border-accent-primary border" />
-        <article class="flex flex-col gap-2">
-          <art-textarea placeholder="Write long text" autoGrow required></art-textarea>
+        <article class="flex w-1/2 flex-col gap-2">
+          <art-textarea
+            placeholder="Write long text"
+            label="Long Message"
+            autoGrow
+            required></art-textarea>
+        </article>
+      </section>
+
+      <!-- Select -->
+      <section class="flex flex-col gap-5">
+        <h1 class="text-accent-primary text-3xl font-semibold uppercase">Select</h1>
+        <hr class="border-accent-primary border" />
+        <article class="flex w-1/2 flex-col gap-2">
+          <art-select id="fruit-select" label="Fruits" required></art-select>
         </article>
       </section>
     </section>
-
-    <script>
-      document.addEventListener('art-control-input', event => {
-        console.log('art-control-input', event);
-      });
-
-      document.addEventListener('art-control-change', event => {
-        console.log('art-control-change', event);
-      });
-
-      const firstnameInput = document.getElementById('firstname-input');
-      const datalist = {
-        name: 'names',
-        options: ['Gerardo', 'Daniel', 'César', 'Alonso', 'Aida', 'Diana'],
-      };
-      firstnameInput.datalist = datalist;
-    </script>
   </body>
 </html>

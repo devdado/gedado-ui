@@ -26,7 +26,7 @@ export class ArtNumberInput extends BaseControl {
 
   // Abstract
 
-  renderControl() {
+  protected renderControl() {
     return html`
       <input
         control
