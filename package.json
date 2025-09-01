@@ -28,21 +28,33 @@
     "preview": "vite preview",
     "format": "prettier --write \"**/*.{ts,js,html,css,json,md}\"",
     "check-format": "prettier --check \"**/*.{ts,js,html,css,json,md}\"",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "lit": "^3.3.0",
-    "material-symbols": "^0.31.9"
+    "material-symbols": "^0.31.9",
+    "storybook": "^9.1.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.0",
     "@custom-elements-manifest/analyzer": "^0.10.4",
+    "@storybook/addon-a11y": "^9.1.1",
+    "@storybook/addon-docs": "^9.1.1",
+    "@storybook/addon-vitest": "^9.1.1",
+    "@storybook/web-components-vite": "^9.1.1",
     "@tailwindcss/vite": "^4.1.10",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
     "tailwindcss": "^4.1.10",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
-    "vite-plugin-dts": "^4.5.4"
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^3.2.4",
+    "@vitest/browser": "^3.2.4",
+    "playwright": "^1.54.2",
+    "@vitest/coverage-v8": "^3.2.4"
   },
   "files": [
     "dist",

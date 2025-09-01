@@ -5,24 +5,24 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Lit + TS</title>
-    <link rel="stylesheet" href="./src/shared/styles/tailwind.css" />
+    <link rel="stylesheet" href="./src/styles/tailwind.css" />
     <script type="module" src="./src/components"></script>
     <script type="module" src="./index.ts"></script>
   </head>
 
-  <body class="text-default-text dark:text-default-text-dark bg-surface dark:bg-surface-dark pb-14">
+  <body class="text-default-text dark:text-default-text-dark bg-surface pb-14 dark:bg-surface-dark">
     <section class="container mx-auto flex flex-col gap-5 px-4">
       <!-- Text Colors -->
       <section class="flex flex-col gap-5">
-        <h1 class="text-accent-primary text-3xl font-semibold uppercase">Text Colors</h1>
-        <hr class="border-accent-primary border" />
+        <h1 class="text-3xl font-semibold text-accent-primary uppercase">Text Colors</h1>
+        <hr class="border border-accent-primary" />
         <article class="flex flex-col gap-5">
-          <h1 class="text-text-default text-3xl font-semibold uppercase">Normal</h1>
-          <h1 class="border-border-default text-text-muted border text-3xl font-semibold uppercase">
+          <h1 class="text-3xl font-semibold text-text-default uppercase">Normal</h1>
+          <h1 class="border border-border-default text-3xl font-semibold text-text-muted uppercase">
             Muted
           </h1>
           <h1
-            class="border-border-default bg-disabled text-text-disabled border text-3xl font-semibold uppercase">
+            class="border border-border-default bg-disabled text-3xl font-semibold text-text-disabled uppercase">
             Disabled
           </h1>
         </article>
@@ -30,10 +30,10 @@
 
       <!-- Buttons -->
       <section class="flex flex-col gap-5">
-        <h1 class="text-accent-primary text-3xl font-semibold uppercase">Buttons</h1>
-        <hr class="border-accent-primary border" />
+        <h1 class="text-3xl font-semibold text-accent-primary uppercase">Buttons</h1>
+        <hr class="border border-accent-primary" />
         <article class="flex flex-col gap-5">
-          <h2 class="text-accent-secondary text-xl">Text Buttons</h2>
+          <h2 class="text-xl text-accent-secondary">Text Buttons</h2>
           <div class="flex flex-wrap justify-center gap-2">
             <art-text-button text="disabled" disabled="true"></art-text-button>
             <art-text-button text="primary"></art-text-button>
@@ -45,7 +45,7 @@
           </div>
         </article>
         <article class="flex flex-col gap-5">
-          <h2 class="text-accent-secondary text-xl">Icon Buttons</h2>
+          <h2 class="text-xl text-accent-secondary">Icon Buttons</h2>
           <div class="flex flex-wrap justify-center gap-2">
             <art-icon-button disabled></art-icon-button>
             <art-icon-button></art-icon-button>
@@ -57,7 +57,7 @@
           </div>
         </article>
         <article class="flex flex-col gap-5">
-          <h2 class="text-accent-secondary text-xl">Hollow Buttons</h2>
+          <h2 class="text-xl text-accent-secondary">Hollow Buttons</h2>
           <div class="flex flex-wrap justify-center gap-2">
             <art-hollow-button text="primary" disabled></art-hollow-button>
             <art-hollow-button text="primary"></art-hollow-button>
@@ -69,7 +69,7 @@
           </div>
         </article>
         <article class="flex flex-col gap-5">
-          <h2 class="text-accent-secondary text-xl">Flat Buttons</h2>
+          <h2 class="text-xl text-accent-secondary">Flat Buttons</h2>
           <div class="flex flex-wrap justify-center gap-2">
             <art-flat-button text="primary" disabled></art-flat-button>
             <art-flat-button text="primary"></art-flat-button>
@@ -84,62 +84,56 @@
 
       <!-- Inputs -->
       <section class="flex flex-col gap-5">
-        <h1 class="text-accent-primary text-3xl font-semibold uppercase">Inputs</h1>
-        <hr class="border-accent-primary border" />
+        <h1 class="text-3xl font-semibold text-accent-primary uppercase">Inputs</h1>
+        <hr class="border border-accent-primary" />
         <article class="flex flex-col gap-5">
-          <h2 class="text-accent-secondary text-xl">Text Input</h2>
+          <h2 class="text-xl text-accent-secondary">Text Input</h2>
           <div class="flex w-1/2 flex-col gap-2">
             <art-text-input
-              id="firstname-input"
-              name="firstname-input"
-              title="Value must be a lowercase string between 1 and 5 characters"
               label="First Name"
               value="Gerardo"
               minlength="5"
               placeholder="Write your Firstname"
               required>
             </art-text-input>
-            <art-text-input
-              label="Last Name"
-              name="lastname-input"
-              value="heredia"
-              pattern="[a-z]{1,10}"
-              required>
+            <art-text-input label="Last Name" value="heredia" pattern="[a-z]{1,10}" required>
             </art-text-input>
           </div>
         </article>
         <article class="flex flex-col gap-5">
-          <h2 class="text-accent-secondary text-xl">Email Input</h2>
+          <h2 class="text-xl text-accent-secondary">Email Input</h2>
           <div class="flex w-1/2 flex-col gap-2">
-            <art-email-input label="Email" name="number-input" required></art-email-input>
+            <art-email-input label="Email" required></art-email-input>
           </div>
         </article>
         <article class="flex flex-col gap-5">
-          <h2 class="text-accent-secondary text-xl">Number Input</h2>
+          <h2 class="text-xl text-accent-secondary">Number Input</h2>
           <div class="flex w-1/2 flex-col gap-2">
-            <art-number-input label="Counter" name="number-input" step="3" min="0" required>
-            </art-number-input>
+            <art-number-input label="Counter" step="3" min="0" required> </art-number-input>
+          </div>
+        </article>
+        <article class="flex flex-col gap-5">
+          <h2 class="text-xl text-accent-secondary">Password Input</h2>
+          <div class="flex w-1/2 flex-col gap-2">
+            <art-password-input label="Password" required> </art-password-input>
           </div>
         </article>
       </section>
 
       <!-- TextArea -->
       <section class="flex flex-col gap-5">
-        <h1 class="text-accent-primary text-3xl font-semibold uppercase">TextArea</h1>
-        <hr class="border-accent-primary border" />
+        <h1 class="text-3xl font-semibold text-accent-primary uppercase">TextArea</h1>
+        <hr class="border border-accent-primary" />
         <article class="flex w-1/2 flex-col gap-2">
-          <art-textarea
-            placeholder="Write long text"
-            label="Long Message"
-            autoGrow
-            required></art-textarea>
+          <art-textarea placeholder="Write long text" label="Long Message" autoGrow required>
+          </art-textarea>
         </article>
       </section>
 
       <!-- Select -->
       <section class="flex flex-col gap-5">
-        <h1 class="text-accent-primary text-3xl font-semibold uppercase">Select</h1>
-        <hr class="border-accent-primary border" />
+        <h1 class="text-3xl font-semibold text-accent-primary uppercase">Select</h1>
+        <hr class="border border-accent-primary" />
         <article class="flex w-1/2 flex-col gap-2">
           <art-select id="fruit-select" label="Fruits" required></art-select>
         </article>

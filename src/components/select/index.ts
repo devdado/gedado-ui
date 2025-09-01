@@ -1,2 +1,2 @@
-export { ArtSelect } from './select.component';
+export { ArtSelect } from './select';
 export type { IArtSelectOption } from './types';

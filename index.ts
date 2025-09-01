@@ -1,28 +1,4 @@
-import { ArtTextInput } from './src/components/input';
 import { type IArtSelectOption, ArtSelect } from './src/components/select';
-
-const addControlEventListeners = () => {
-  document.addEventListener('art-control-input', event => {
-    console.log('art-control-input', event);
-  });
-
-  document.addEventListener('art-control-change', event => {
-    console.log('art-control-change', event);
-  });
-};
-
-const initInputs = () => {
-  const initFirstnameInput = () => {
-    const firstnameInput = document.getElementById('firstname-input') as unknown as ArtTextInput;
-    const datalist = {
-      name: 'names',
-      options: ['Gerardo', 'Daniel', 'César', 'Alonso', 'Aida', 'Diana'],
-    };
-    firstnameInput.datalist = datalist;
-  };
-
-  initFirstnameInput();
-};
 
 const initSelects = () => {
   const initFruitSelect = () => {
@@ -40,6 +16,4 @@ const initSelects = () => {
   initFruitSelect();
 };
 
-initInputs();
 initSelects();
-addControlEventListeners();
