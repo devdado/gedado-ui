@@ -1,0 +1,178 @@
+@import 'tailwindcss';
+
+@layer base {
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    font-optical-sizing: auto;
+    src: url('../assets/fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    font-optical-sizing: auto;
+    src: url('../assets/fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Material Symbols Rounded';
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: swap;
+    src: url('../assets/fonts/material-symbols-rounded.woff2') format('woff2');
+  }
+}
+
+/** Components */
+@layer components {
+  .art-control {
+    /* prettier-ignore */
+    @apply 
+      bg-surface 
+      text-text-default 
+      placeholder:text-text-muted 
+      valid:ring-border-default 
+      invalid:ring-status-error 
+      valid:focus:ring-accent-primary 
+      invalid:focus:ring-status-error 
+      disabled:bg-disabled 
+      disabled:text-text-disabled 
+      disabled:ring-slate-200 
+      read-only:bg-panel
+      read-only:text-gray-300
+      read-only:ring-slate-200
+      inline-block 
+      w-full 
+      rounded-md 
+      p-1 
+      ring-1 
+      focus:outline-none sm:text-sm;
+  }
+}
+
+/** Borders */
+/** Breakpoints */
+/** Shadows */
+/** Spacing */
+/** Typography */
+
+@utility material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+
+  &.filled {
+    font-variation-settings: 'FILL' 1;
+  }
+}
+
+/** Colors */
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  /*
+    |--------------------------------------------------------------------------
+    | 60-30-10 FOCUSED COLOR PALETTE
+    |--------------------------------------------------------------------------
+    | These variables are named specifically to guide their primary usage
+    | according to the 60-30-10 principle in a web UI context.
+    */
+
+  /*
+    | 60% - Dominant (The "Canvas" / Backgrounds)
+    | These colors define the primary background surfaces. They make up the
+    | majority of the visual real estate on most pages.
+    */
+  /* Primary application background */
+  --color-surface: var(--color-slate-50);
+  --color-surface-dark: var(--color-slate-900);
+  /* Background for cards, panels */
+  --color-panel: var(--color-white);
+  --color-panel-dark: var(--color-slate-800);
+
+  /*
+    | 30% - Secondary (Primary Content / Text / Supporting Elements)
+    | These colors are for core content that provides visual contrast against
+    | the dominant surfaces. Primarily text, but also subtle borders, icons, etc.
+    */
+  /* Primary body text color */
+  --color-text-default: var(--color-slate-800);
+  --color-text-default-dark: var(--color-slate-300);
+  /* Secondary text, captions, placeholders */
+  --color-text-muted: var(--color-slate-300);
+  --color-text-muted-dark: var(--color-slate-500);
+  /* Default border color */
+  --color-border-default: var(--color-slate-200);
+  --color-border-default-dark: var(--color-slate-400);
+  /* Disabled, read only */
+  --color-disabled: var(--color-slate-100);
+  --color-disabled-dark: var(--color-slate-300);
+  --color-text-disabled: var(--color-slate-300);
+  --color-text-disabled-dark: var(--color-slate-500);
+
+  /*
+    | 10% - Accent (Key Actions / Brand Focus)
+    | These colors are used sparingly to draw attention to critical interactive
+    | elements, brand highlights, or important status indicators.
+    */
+  /* #fca311 Main brand color, primary CTA (vibrant blue) */
+  --color-accent-primary-lightest: color-mix(in oklab, var(--color-accent-primary) 70%, white);
+  --color-accent-primary-light: color-mix(in oklab, var(--color-accent-primary) 85%, white);
+  --color-accent-primary: var(--color-orange-300);
+  --color-accent-primary-dark: color-mix(in oklab, var(--color-accent-primary) 80%, black);
+  --color-accent-primary-darkest: color-mix(in oklab, var(--color-accent-primary) 50%, black);
+  /* #003566 Less prominent actions, secondary brand color (muted gray) */
+  --color-accent-secondary-lightest: color-mix(in oklab, var(--color-accent-secondary) 70%, white);
+  --color-accent-secondary-light: color-mix(in oklab, var(--color-accent-secondary) 85%, white);
+  --color-accent-secondary: var(--color-sky-700);
+  --color-accent-secondary-dark: color-mix(in oklab, var(--color-accent-secondary) 80%, black);
+  --color-accent-secondary-darkest: color-mix(in oklab, var(--color-accent-secondary) 50%, black);
+
+  /*
+    |--------------------------------------------------------------------------
+    | SEMANTIC STATUS COLORS
+    |--------------------------------------------------------------------------
+    | Used for feedback, alerts, and conveying specific states.
+    | These are also part of the 10% accent category, used judiciously.
+    */
+  /* Success */
+  --color-status-success-lightest: color-mix(in oklab, var(--color-status-success) 70%, white);
+  --color-status-success-light: color-mix(in oklab, var(--color-status-success) 85%, white);
+  --color-status-success: var(--color-emerald-500);
+  --color-status-success-dark: color-mix(in oklab, var(--color-status-success) 80%, black);
+  --color-status-success-darkest: color-mix(in oklab, var(--color-status-success) 50%, black);
+  /* Warning */
+  --color-status-warning-lightest: color-mix(in oklab, var(--color-status-warning) 70%, white);
+  --color-status-warning-light: color-mix(in oklab, var(--color-status-warning) 85%, white);
+  --color-status-warning: var(--color-amber-500);
+  --color-status-warning-dark: color-mix(in oklab, var(--color-status-warning) 80%, black);
+  --color-status-warning-darkest: color-mix(in oklab, var(--color-status-warning) 50%, black);
+  /* Error */
+  --color-status-error-lightest: color-mix(in oklab, var(--color-status-error) 70%, white);
+  --color-status-error-light: color-mix(in oklab, var(--color-status-error) 85%, white);
+  --color-status-error: var(--color-rose-500);
+  --color-status-error-dark: color-mix(in oklab, var(--color-status-error) 80%, black);
+  --color-status-error-darkest: color-mix(in oklab, var(--color-status-error) 50%, black);
+  /* Info */
+  --color-status-info-lightest: color-mix(in oklab, var(--color-status-info) 70%, white);
+  --color-status-info-light: color-mix(in oklab, var(--color-status-info) 85%, white);
+  --color-status-info: var(--color-indigo-500);
+  --color-status-info-dark: color-mix(in oklab, var(--color-status-info) 80%, black);
+  --color-status-info-darkest: color-mix(in oklab, var(--color-status-info) 50%, black);
+}

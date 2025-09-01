@@ -1,1 +1,1 @@
-export { ArtTextarea } from './textarea.component';
+export { ArtTextarea } from './textarea';
