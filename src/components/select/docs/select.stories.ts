@@ -13,7 +13,7 @@ const meta: Meta<IArtSelect> = {
   argTypes: {
     id: {
       control: 'text',
-      description: 'The input ID',
+      description: 'The select ID',
       table: {
         category: 'Attributes',
         type: { summary: 'string' },
@@ -25,7 +25,7 @@ const meta: Meta<IArtSelect> = {
     },
     name: {
       control: 'text',
-      description: 'The input name',
+      description: 'The select name',
       table: {
         category: 'Attributes',
         type: { summary: 'string' },
@@ -37,7 +37,7 @@ const meta: Meta<IArtSelect> = {
     },
     label: {
       control: 'text',
-      description: 'The text of the label associated to the input',
+      description: 'The text of the label associated to the select',
       table: {
         category: 'UI/UX',
         type: { summary: 'string | undefined' },
@@ -56,7 +56,7 @@ const meta: Meta<IArtSelect> = {
     },
     disabled: {
       control: 'boolean',
-      description: 'If "true", the input is inmutable and not focusable',
+      description: 'If "true", the select is inmutable and not focusable',
       table: {
         category: 'UI/UX',
         type: { summary: 'boolean' },
@@ -84,7 +84,7 @@ const meta: Meta<IArtSelect> = {
     },
     required: {
       control: 'boolean',
-      description: 'If "true", a value must be specified for the input to be valid',
+      description: 'If "true", a value must be specified for the select to be valid',
       table: {
         category: 'Validation',
         type: { summary: 'boolean' },

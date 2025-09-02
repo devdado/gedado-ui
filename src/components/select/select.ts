@@ -59,6 +59,7 @@ export class ArtSelect extends LitElement implements IArtSelect {
         ${when(this.label, () => renderLabel({ inputId: this.id, text: this.label! }))}
         <div class="flex flex-col gap-2">
           <select
+            data-testid="art-select"
             id="${this.name}"
             class="art-control"
             name="${this.name}"
