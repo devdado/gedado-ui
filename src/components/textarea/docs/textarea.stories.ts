@@ -13,7 +13,7 @@ const meta: Meta<IArtTextarea> = {
   argTypes: {
     id: {
       control: 'text',
-      description: 'The input ID',
+      description: 'The textarea ID',
       table: {
         category: 'Attributes',
         type: { summary: 'string' },
@@ -25,7 +25,7 @@ const meta: Meta<IArtTextarea> = {
     },
     name: {
       control: 'text',
-      description: 'The input name',
+      description: 'The textarea name',
       table: {
         category: 'Attributes',
         type: { summary: 'string' },
@@ -37,7 +37,7 @@ const meta: Meta<IArtTextarea> = {
     },
     label: {
       control: 'text',
-      description: 'The text of the label associated to the input',
+      description: 'The text of the label associated to the textarea',
       table: {
         category: 'UI/UX',
         type: { summary: 'string | undefined' },
@@ -46,7 +46,7 @@ const meta: Meta<IArtTextarea> = {
     },
     placeholder: {
       control: 'text',
-      description: 'The text displayed in the input when it has no value',
+      description: 'The text displayed in the textarea when it has no value',
       table: {
         category: 'UI/UX',
         type: { summary: 'string | undefined' },
@@ -55,7 +55,7 @@ const meta: Meta<IArtTextarea> = {
     },
     cols: {
       control: 'number',
-      description: 'The visible width of the text control, in average character widths.',
+      description: 'The visible width of the textarea, in average character widths.',
       table: {
         category: 'UI/UX',
         type: { summary: 'number' },
@@ -64,7 +64,7 @@ const meta: Meta<IArtTextarea> = {
     },
     rows: {
       control: 'number',
-      description: 'The number of visible text lines for the control.',
+      description: 'The number of visible text lines for the textarea.',
       table: {
         category: 'UI/UX',
         type: { summary: 'number' },
@@ -82,7 +82,7 @@ const meta: Meta<IArtTextarea> = {
     },
     disabled: {
       control: 'boolean',
-      description: 'If "true", the input is inmutable and not focusable',
+      description: 'If "true", the textarea is inmutable and not focusable',
       table: {
         category: 'UI/UX',
         type: { summary: 'boolean' },
@@ -91,7 +91,7 @@ const meta: Meta<IArtTextarea> = {
     },
     readonly: {
       control: 'boolean',
-      description: 'If "true", the input is inmutable',
+      description: 'If "true", the textarea is inmutable',
       table: {
         category: 'UI/UX',
         type: { summary: 'boolean' },
@@ -136,7 +136,7 @@ const meta: Meta<IArtTextarea> = {
     },
     required: {
       control: 'boolean',
-      description: 'If "true", a value must be specified for the input to be valid',
+      description: 'If "true", a value must be specified for the textarea to be valid',
       table: {
         category: 'Validation',
         type: { summary: 'boolean' },

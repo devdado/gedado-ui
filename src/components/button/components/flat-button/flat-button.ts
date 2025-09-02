@@ -58,47 +58,6 @@ export class ArtFlatButton extends BaseArtButton implements IArtFlatButton {
       </button>
     `;
   }
-
-  /* protected setVariantClasses(): void {
-    switch (this.variant) {
-      case 'primary':
-        this.variantClasses = `
-          text-accent-primary 
-          hover:text-accent-primary-dark  
-        `;
-        break;
-      case 'secondary':
-        this.variantClasses = ` 
-          text-accent-secondary 
-          hover:text-accent-secondary-dark 
-        `;
-        break;
-      case 'success':
-        this.variantClasses = `
-          text-status-success 
-          hover:text-status-success-dark
-        `;
-        break;
-      case 'warning':
-        this.variantClasses = `
-          text-status-warning 
-          hover:text-status-warning-dark 
-        `;
-        break;
-      case 'error':
-        this.variantClasses = `
-          text-status-error 
-          hover:text-status-error-dark 
-        `;
-        break;
-      case 'info':
-        this.variantClasses = ` 
-          text-status-info 
-          hover:text-status-info-dark 
-        `;
-        break;
-    }
-  } */
 }
 
 declare global {

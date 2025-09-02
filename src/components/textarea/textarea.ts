@@ -68,6 +68,7 @@ export class ArtTextarea extends LitElement implements IArtTextarea {
         ${when(this.label, () => renderLabel({ inputId: this.id, text: this.label! }))}
         <div class="flex flex-col gap-2">
           <textarea
+            data-testid="art-textarea"
             id="${this.name}"
             name="${this.name}"
             class="art-control"
