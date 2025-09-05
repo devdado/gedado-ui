@@ -8,9 +8,3 @@ export interface IBaseArtButton {
   size: ButtonSize;
   disabled: boolean;
 }
-
-export interface IFullArtButton extends IBaseArtButton {
-  leftIcon?: string;
-  rightIcon?: string;
-  text: string;
-}

@@ -105,7 +105,7 @@ const meta: Meta<IArtSelect> = {
   args: {
     id: 'control-155ef6df-75e7-41d2-ac11-c0e775529570',
     name: 'control-155ef6df-75e7-41d2-ac11-c0e775529570',
-    label: '',
+    label: undefined,
     size: 0,
     value: '',
     required: false,

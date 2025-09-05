@@ -72,17 +72,10 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
     const UID = `control-${generateSecureUID()}`;
     this.id = UID;
     this.name = UID;
-    if (this.variant === 'primary') {
-      console.log('constructor', this.variant, this.checked);
-    }
   }
 
   // Lifecycle
 
-  /**
-   * Lifecycle method called when the element is first updated.
-   * We use this to synchronize the internal state with the initial public property value.
-   */
   connectedCallback() {
     super.connectedCallback();
     this.internalChecked = this.checked;
@@ -90,10 +83,6 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
     this.setLabelClassMap();
   }
 
-  /**
-   * Lifecycle method to react to property changes.
-   * We synchronize the internal state whenever the public 'checked' property changes.
-   */
   willUpdate(changedProperties: Map<string, unknown>) {
     if (changedProperties.has('checked')) {
       this.internalChecked = this.checked;
@@ -160,11 +149,6 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
 
   // Event Handlers
 
-  /**
-   * Handles the change event from the native input element.
-   * This updates the public 'checked' property and dispatches a custom event.
-   * @param event The native change event.
-   */
   private onChange(event: Event) {
     const target = event.target as HTMLInputElement;
     this.internalChecked = target.checked;
@@ -182,10 +166,9 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
 
   private setLabelClassMap() {
     this.labelClassMap = {
-      'text-gray-400': this.disabled,
-      'text-gray-700': !this.disabled,
+      'text-text-disabled': this.disabled,
+      'text-text-text-default': !this.disabled,
       'cursor-pointer': true,
-      'font-light': true,
       'select-none': true,
     };
   }
