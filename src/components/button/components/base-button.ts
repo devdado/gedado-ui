@@ -2,14 +2,25 @@ import { getSharedTailwindStyles } from '@/styles';
 import type { Variant } from '@/types/core';
 import { LitElement, css } from 'lit';
 import { property } from 'lit/decorators.js';
+import type { ClassInfo } from 'lit/directives/class-map.js';
 import type { ButtonSize, IBaseArtButton } from './types';
 
 export abstract class BaseArtButton extends LitElement implements IBaseArtButton {
+  // UI/UX
   @property({ type: String }) size: ButtonSize = 'base';
   @property({ type: String }) variant: Variant = 'primary';
   @property({ type: Boolean }) disabled = false;
 
-  protected layoutButtonClassMap?: { [key: string]: boolean } = {
+  // Class Maps
+  abstract buttonClassMap: ClassInfo;
+  protected shadowClassMap?: ClassInfo;
+  protected borderClassMap?: ClassInfo;
+  protected paddingClassMap?: ClassInfo;
+  protected fontClassMap?: ClassInfo;
+  protected iconClassMap?: ClassInfo;
+  protected variantClassMap?: ClassInfo;
+
+  protected layoutButtonClassMap: ClassInfo = {
     flex: true,
     'cursor-pointer': true,
     'items-center': true,
@@ -17,7 +28,7 @@ export abstract class BaseArtButton extends LitElement implements IBaseArtButton
     'gap-1': true,
   };
 
-  protected disabledClassMap: { [key: string]: boolean } = {
+  protected disabledClassMap: ClassInfo = {
     'disabled:bg-gray-200': true,
     'disabled:text-gray-300': true,
     'disabled:cursor-not-allowed': true,
@@ -25,20 +36,7 @@ export abstract class BaseArtButton extends LitElement implements IBaseArtButton
     'disabled:border-gray-300': true,
   };
 
-  protected shadowClassMap?: { [key: string]: boolean };
-
-  protected borderClassMap?: { [key: string]: boolean };
-
-  protected paddingClassMap?: { [key: string]: boolean };
-
-  protected fontClassMap?: { [key: string]: boolean };
-
-  protected iconClassMap?: { [key: string]: boolean };
-
-  protected variantClassMap?: { [key: string]: boolean };
-
-  abstract buttonClassMap: { [key: string]: boolean };
-
+  // Styling
   static styles = [
     // Get the shared Tailwind stylesheet.
     // In a browser, this returns a CSSStyleSheet object.
@@ -47,6 +45,8 @@ export abstract class BaseArtButton extends LitElement implements IBaseArtButton
     // ensuring the array always contains valid Lit style types.
     getSharedTailwindStyles() || css``,
   ];
+
+  // Utils
 
   private setPaddingClassMap() {
     this.paddingClassMap = {

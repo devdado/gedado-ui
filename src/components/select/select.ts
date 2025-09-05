@@ -113,7 +113,9 @@ export class ArtSelect extends LitElement implements IArtSelect {
   }
 
   reset() {
-    this.value = '';
+    if (this.options[0]) {
+      this.value = this.options[0].value;
+    }
     this.checkValidity();
   }
 }
