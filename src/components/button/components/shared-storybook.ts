@@ -14,7 +14,6 @@ export const BaseButtonMeta: Meta<IBaseArtButton> = {
         type: { summary: 'Variant' },
         defaultValue: { summary: 'primary' },
       },
-      required: false,
     },
     size: {
       control: 'select',
@@ -26,7 +25,6 @@ export const BaseButtonMeta: Meta<IBaseArtButton> = {
         type: { summary: 'Size' },
         defaultValue: { summary: 'base' },
       },
-      required: false,
     },
     disabled: {
       control: 'boolean',
@@ -37,7 +35,6 @@ export const BaseButtonMeta: Meta<IBaseArtButton> = {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
       },
-      required: false,
     },
   },
   args: {

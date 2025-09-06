@@ -1,19 +1,20 @@
 import type { Variant } from '@/types/core';
 
-export interface ICoeRadioButton {
+export interface IArtRadioButton {
   id: string;
   value: string;
   label: string;
   variant?: Variant;
 }
 
-export interface ICoeRadioGroup {
+export interface IArtRadioGroup {
   name: string;
   legend: string;
   disabled: boolean;
   value?: string;
   layout: RadioGroupLayout;
-  radioButtons: ICoeRadioButton[];
+  radioButtons: IArtRadioButton[];
 }
 
-export type RadioGroupLayout = 'vertical' | 'horizontal';
+export const radioGroupLayouts = ['vertical', 'horizontal'];
+export type RadioGroupLayout = (typeof radioGroupLayouts)[number];

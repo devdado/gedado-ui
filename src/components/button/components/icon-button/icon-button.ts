@@ -1,13 +1,13 @@
 import { css, html, type PropertyValues } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { BaseArtButton } from '../base-button';
 import type { IArtIconButton } from './types';
 
 @customElement('art-icon-button')
 export class ArtIconButton extends BaseArtButton implements IArtIconButton {
   @property({ type: String }) icon: string = 'home';
-  buttonClassMap!: { [key: string]: boolean };
+  buttonClassMap!: ClassInfo;
 
   static styles = [
     ...BaseArtButton.styles,
@@ -44,40 +44,6 @@ export class ArtIconButton extends BaseArtButton implements IArtIconButton {
       </button>
     `;
   }
-
-  /* protected setFontSizeClasses(): void {
-    switch (this.size) {
-      case 'tiny':
-        this.iconSizeClasses = '!text-[16px]';
-        break;
-      case 'small':
-        this.iconSizeClasses = '!text-[18px]';
-        break;
-      case 'base':
-        this.iconSizeClasses = '!text-[20px]';
-        break;
-      case 'large':
-        this.iconSizeClasses = '!text-[22px]';
-        break;
-    }
-  } */
-
-  /* protected setPaddingClasses(): void {
-    switch (this.size) {
-      case 'tiny':
-        this.paddingClasses = 'p-1';
-        break;
-      case 'small':
-        this.paddingClasses = 'p-1.5';
-        break;
-      case 'base':
-        this.paddingClasses = 'p-2';
-        break;
-      case 'large':
-        this.paddingClasses = 'p-2.5';
-        break;
-    }
-  } */
 }
 
 declare global {
