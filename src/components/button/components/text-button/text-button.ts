@@ -1,6 +1,6 @@
 import { css, html, type PropertyValues } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { when } from 'lit/directives/when.js';
 import { BaseArtButton } from '../base-button';
 import type { IArtTextButton } from './types';
@@ -10,7 +10,7 @@ export class ArtTextButton extends BaseArtButton implements IArtTextButton {
   @property({ type: String }) leftIcon?: string;
   @property({ type: String }) rightIcon?: string;
   @property({ type: String }) text = 'Click';
-  buttonClassMap!: { [key: string]: boolean };
+  buttonClassMap!: ClassInfo;
 
   static styles = [
     ...BaseArtButton.styles,

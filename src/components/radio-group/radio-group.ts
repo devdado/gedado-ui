@@ -4,14 +4,14 @@ import { LitElement, css, html, type PropertyValues } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { map } from 'lit/directives/map.js';
-import type { ICoeRadioButton, ICoeRadioGroup, RadioGroupLayout } from './types';
+import type { IArtRadioButton, IArtRadioGroup, RadioGroupLayout } from './types';
 
 @customElement('art-radio-group')
-export class ArtRadioGroup extends LitElement implements ICoeRadioGroup {
+export class ArtRadioGroup extends LitElement implements IArtRadioGroup {
   // UI/UX
   @property({ type: String }) name = `radio-${generateSecureUID()}`;
   @property({ type: String }) legend = 'Radio Group';
-  @property({ type: Array }) radioButtons: ICoeRadioButton[] = [];
+  @property({ type: Array }) radioButtons: IArtRadioButton[] = [];
   @property({ type: String }) layout: RadioGroupLayout = 'horizontal';
 
   // Validation
@@ -62,7 +62,7 @@ export class ArtRadioGroup extends LitElement implements ICoeRadioGroup {
 
   // Rendering
 
-  private renderRadioButton(radio: ICoeRadioButton) {
+  private renderRadioButton(radio: IArtRadioButton) {
     const radioClassMap = this.setRadioButtonVariantClassMap(radio);
 
     return html`
@@ -117,7 +117,7 @@ export class ArtRadioGroup extends LitElement implements ICoeRadioGroup {
     };
   }
 
-  private setRadioButtonVariantClassMap(radio: ICoeRadioButton): ClassInfo {
+  private setRadioButtonVariantClassMap(radio: IArtRadioButton): ClassInfo {
     return radio.variant
       ? {
           'accent-accent-primary': radio.variant === 'primary',

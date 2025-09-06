@@ -1,13 +1,13 @@
 import { css, html, type PropertyValues } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { BaseArtButton } from '../base-button';
 import type { IArtFlatButton } from './types';
 
 @customElement('art-flat-button')
 export class ArtFlatButton extends BaseArtButton implements IArtFlatButton {
   @property({ type: String }) text = 'Click';
-  buttonClassMap!: { [key: string]: boolean };
+  buttonClassMap!: ClassInfo;
 
   static styles = [
     ...BaseArtButton.styles,
