@@ -58,7 +58,7 @@ export class ArtTextarea extends LitElement implements IArtTextarea {
     }
   }
 
-  protected firstUpdated(_changedProperties: PropertyValues): void {
+  protected firstUpdated(): void {
     Promise.resolve().then(() => this.checkValidity());
   }
 
@@ -84,9 +84,7 @@ export class ArtTextarea extends LitElement implements IArtTextarea {
             ?disabled=${this.disabled}
             @input=${this.onInput}>
           </textarea>
-          ${when(this.validationMessage, () =>
-            renderValidationMessage({ message: this.validationMessage! })
-          )}
+          ${when(this.validationMessage, () => renderValidationMessage({ message: this.validationMessage! }))}
         </div>
       </div>
     `;

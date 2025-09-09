@@ -1,4 +1,4 @@
-import { css, html, type PropertyValues } from 'lit';
+import { css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { BaseArtButton } from '../base-button';
@@ -18,7 +18,7 @@ export class ArtFlatButton extends BaseArtButton implements IArtFlatButton {
     `,
   ];
 
-  protected willUpdate(_changedProperties: PropertyValues): void {
+  protected willUpdate(): void {
     this.setBaseClasses();
     this.buttonClassMap = {
       ...this.layoutButtonClassMap,

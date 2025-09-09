@@ -1,4 +1,4 @@
-import { css, html, type PropertyValues } from 'lit';
+import { css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { BaseArtButton } from '../base-button';
@@ -6,7 +6,7 @@ import type { IArtIconButton } from './types';
 
 @customElement('art-icon-button')
 export class ArtIconButton extends BaseArtButton implements IArtIconButton {
-  @property({ type: String }) icon: string = 'home';
+  @property({ type: String }) icon = 'home';
   buttonClassMap!: ClassInfo;
 
   static styles = [
@@ -18,7 +18,7 @@ export class ArtIconButton extends BaseArtButton implements IArtIconButton {
     `,
   ];
 
-  protected willUpdate(_changedProperties: PropertyValues): void {
+  protected willUpdate(): void {
     this.setBaseClasses();
     this.buttonClassMap = {
       ...this.layoutButtonClassMap,

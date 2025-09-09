@@ -12,5 +12,5 @@ export interface IArtSelect {
   required: boolean;
   disabled: boolean;
   multiple: boolean;
-  options: Array<IArtSelectOption>;
+  options: IArtSelectOption[];
 }

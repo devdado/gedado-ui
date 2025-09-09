@@ -70,9 +70,7 @@ export class ArtSelect extends LitElement implements IArtSelect {
             @change="${this.onChange}">
             ${map(this.options, option => this.renderOption(option, this.value))}
           </select>
-          ${when(this.validationMessage, () =>
-            renderValidationMessage({ message: this.validationMessage! })
-          )}
+          ${when(this.validationMessage, () => renderValidationMessage({ message: this.validationMessage! }))}
         </div>
       </div>
     `;
@@ -81,11 +79,7 @@ export class ArtSelect extends LitElement implements IArtSelect {
   // Rendering
 
   private renderOption(option: IArtSelectOption, currentvalue: string) {
-    return html`
-      <option value="${option.value}" ?selected="${option.value === currentvalue}">
-        ${option.name}
-      </option>
-    `;
+    return html` <option value="${option.value}" ?selected="${option.value === currentvalue}">${option.name}</option> `;
   }
 
   // Event Listeners
