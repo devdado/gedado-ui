@@ -48,6 +48,7 @@ export default defineConfig([
       'lit/no-duplicate-template-bindings': 'error',
       'lit/no-invalid-html': 'error',
       '@html-eslint/no-trailing-spaces': 'off',
+      'no-console': 'error',
     },
   },
 
