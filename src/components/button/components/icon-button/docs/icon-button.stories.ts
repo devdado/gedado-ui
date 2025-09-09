@@ -34,13 +34,7 @@ export default meta;
 type Story = StoryObj<IArtIconButton>;
 
 const Template = (args: IArtIconButton) => {
-  return html`
-    <art-icon-button
-      variant="${args.variant}"
-      size="${args.size}"
-      icon="${args.icon}"
-      ?disabled="${args.disabled}"></art-icon-button>
-  `;
+  return html` <art-icon-button variant="${args.variant}" size="${args.size}" icon="${args.icon}" ?disabled="${args.disabled}"></art-icon-button> `;
 };
 
 export const Default: Story = {

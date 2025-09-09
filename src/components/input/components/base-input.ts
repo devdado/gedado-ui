@@ -50,7 +50,7 @@ export abstract class BaseArtInput extends LitElement implements IBaseArtInput {
     }
   }
 
-  protected firstUpdated(_changedProperties: PropertyValues): void {
+  protected firstUpdated(): void {
     Promise.resolve().then(() => this.checkValidity());
   }
 
@@ -59,10 +59,7 @@ export abstract class BaseArtInput extends LitElement implements IBaseArtInput {
       <div class="flex flex-col gap-1">
         ${when(this.label, () => renderLabel({ inputId: this.id, text: this.label! }))}
         <div class="flex flex-col gap-2">
-          ${this.renderInput()}
-          ${when(this.validationMessage, () =>
-            renderValidationMessage({ message: this.validationMessage! })
-          )}
+          ${this.renderInput()} ${when(this.validationMessage, () => renderValidationMessage({ message: this.validationMessage! }))}
         </div>
       </div>
     `;

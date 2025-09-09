@@ -6,8 +6,7 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import path from 'node:path';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
-const dirname =
-  typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
@@ -77,10 +76,7 @@ export default defineConfig({
       // Tailwind 4 still does not add sourcemaps, so we hide a sourcemaps warning during build
       // This does not affect the build process
       onwarn(warning, warn) {
-        if (
-          warning.code === 'SOURCEMAP_BROKEN' &&
-          warning.plugin === '@tailwindcss/vite:generate:build'
-        ) {
+        if (warning.code === 'SOURCEMAP_BROKEN' && warning.plugin === '@tailwindcss/vite:generate:build') {
           return;
         }
         warn(warning);

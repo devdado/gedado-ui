@@ -34,13 +34,7 @@ export default meta;
 type Story = StoryObj<IArtFlatButton>;
 
 const Template = (args: IArtFlatButton) => {
-  return html`
-    <art-flat-button
-      variant="${args.variant}"
-      size="${args.size}"
-      text="${args.text}"
-      ?disabled="${args.disabled}"></art-flat-button>
-  `;
+  return html` <art-flat-button variant="${args.variant}" size="${args.size}" text="${args.text}" ?disabled="${args.disabled}"> </art-flat-button>`;
 };
 
 export const Default: Story = {

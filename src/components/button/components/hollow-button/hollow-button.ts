@@ -1,4 +1,4 @@
-import { css, html, type PropertyValues } from 'lit';
+import { css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { when } from 'lit/directives/when.js';
@@ -21,7 +21,7 @@ export class ArtHollowButton extends BaseArtButton implements IArtHollowButton {
     `,
   ];
 
-  protected willUpdate(_changedProperties: PropertyValues): void {
+  protected willUpdate(): void {
     this.setBaseClasses();
     this.buttonClassMap = {
       ...this.layoutButtonClassMap,
@@ -80,15 +80,9 @@ export class ArtHollowButton extends BaseArtButton implements IArtHollowButton {
           ...this.borderClassMap,
         })}"
         ?disabled="${this.disabled}">
-        ${when(
-          this.leftIcon,
-          () => html`<span class="${classMap(this.iconClassMap!)}">${this.leftIcon}</span>`
-        )}
+        ${when(this.leftIcon, () => html`<span class="${classMap(this.iconClassMap!)}">${this.leftIcon}</span>`)}
         <span class="${classMap(this.fontClassMap!)}">${this.text}</span>
-        ${when(
-          this.rightIcon,
-          () => html`<span class="${classMap(this.iconClassMap!)}">${this.rightIcon}</span>`
-        )}
+        ${when(this.rightIcon, () => html`<span class="${classMap(this.iconClassMap!)}">${this.rightIcon}</span>`)}
       </button>
     `;
   }

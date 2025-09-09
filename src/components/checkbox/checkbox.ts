@@ -4,7 +4,7 @@ import type { Variant } from '@/types/core';
 import { generateSecureUID } from '@/utilities/string';
 import { LitElement, css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
 import { when } from 'lit/directives/when.js';
 import type { IArtCheckbox } from './types';
 
@@ -27,9 +27,9 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
 
   // Styling
 
-  private variantClassMap?: { [key: string]: boolean };
-  private labelClassMap?: { [key: string]: boolean };
-  private checkboxClassMap: { [key: string]: boolean } = {
+  private variantClassMap?: ClassInfo;
+  private labelClassMap?: ClassInfo;
+  private checkboxClassMap: ClassInfo = {
     peer: true,
     relative: true,
     'h-4': true,
@@ -92,14 +92,10 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
   render() {
     return html`
       <div class="flex flex-col gap-1">
-        <div class="flex items-center gap-1">
-          ${this.renderCheckbox()} ${when(this.label, () => this.renderLabel())}
-        </div>
+        <div class="flex items-center gap-1">${this.renderCheckbox()} ${when(this.label, () => this.renderLabel())}</div>
         ${when(
           this.required && !this.internalChecked,
-          () => html`
-            <div class="pl-1">${renderValidationMessage({ message: this.validationMessage })}</div>
-          `
+          () => html` <div class="pl-1">${renderValidationMessage({ message: this.validationMessage })}</div> `
         )}
       </div>
     `;
@@ -109,10 +105,7 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
 
   private renderCheckbox() {
     return html`
-      <label
-        for="${this.id}"
-        class="relative flex cursor-pointer items-center rounded-full p-1"
-        data-ripple-dark="true">
+      <label for="${this.id}" class="relative flex cursor-pointer items-center rounded-full p-1" data-ripple-dark="true">
         <input
           data-testid="art-checkbox"
           type="checkbox"
@@ -124,13 +117,7 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
           @change="${this.onChange}" />
         <div
           class="pointer-events-none absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-3.5 w-3.5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            stroke="currentColor"
-            stroke-width="1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" stroke-width="1">
             <path
               fill-rule="evenodd"
               d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -142,9 +129,7 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
   }
 
   private renderLabel() {
-    return html`
-      <label class="${classMap(this.labelClassMap!)}" for="${this.id}"> ${this.label} </label>
-    `;
+    return html` <label class="${classMap(this.labelClassMap!)}" for="${this.id}"> ${this.label} </label> `;
   }
 
   // Event Handlers

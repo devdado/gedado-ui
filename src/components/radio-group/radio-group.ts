@@ -53,9 +53,7 @@ export class ArtRadioGroup extends LitElement implements IArtRadioGroup {
     return html`
       <fieldset class="rounded border border-gray-300 p-4">
         <legend class="px-2 text-sm">${this.legend}</legend>
-        <div class="${classMap(this.layoutClassMap!)}">
-          ${map(this.radioButtons, radio => this.renderRadioButton(radio))}
-        </div>
+        <div class="${classMap(this.layoutClassMap!)}">${map(this.radioButtons, radio => this.renderRadioButton(radio))}</div>
       </fieldset>
     `;
   }

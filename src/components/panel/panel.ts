@@ -45,14 +45,7 @@ export class ArtPanel extends LitElement implements IArtPanel {
   render() {
     return html`
       <div class="${classMap(this.panelClassMap!)}">
-        ${when(
-          this.title,
-          () =>
-            html`<h1
-              class="${classMap(this.titleVariantClassMap!)} text-sm font-semibold uppercase">
-              ${this.title}
-            </h1>`
-        )}
+        ${when(this.title, () => html`<h1 class="${classMap(this.titleVariantClassMap!)} text-sm font-semibold uppercase">${this.title}</h1>`)}
         <slot class="text-text-default"></slot>
       </div>
     `;
