@@ -2,5 +2,17 @@
   "*.ts": [
     "pnpm run lint",
     "pnpm run prettier:format"
+  ],
+  "*.json": [
+    "pnpm run prettier:format"
+  ],
+  "*.md": [
+    "pnpm run prettier:format"
+  ],
+  "*.html": [
+    "pnpm run prettier:format"
+  ],
+  "*.css": [
+    "pnpm run prettier:format"
   ]
 }
