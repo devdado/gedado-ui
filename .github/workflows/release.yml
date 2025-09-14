@@ -32,8 +32,10 @@ jobs:
       - name: Run tests
         run: pnpm test
 
+      - name: Build project
+        run: pnpm build
+
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: pnpm exec semantic-release

@@ -55,7 +55,7 @@ export default defineConfig([
   // 4. Configuration for JSON
 
   {
-    files: ['src/**/*.jsonc', 'src/**/*.json'],
+    files: ['src/**/*.json'],
     plugins: { json },
     language: 'json/jsonc',
     extends: ['json/recommended'],
