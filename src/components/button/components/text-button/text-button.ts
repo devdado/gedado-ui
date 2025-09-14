@@ -22,23 +22,22 @@ export class ArtTextButton extends BaseArtButton implements IArtTextButton {
   ];
 
   protected willUpdate(): void {
-    this.setBaseClasses();
-    this.buttonClassMap = {
-      ...this.layoutButtonClassMap,
-      ...this.shadowClassMap,
-      ...this.borderClassMap,
-      ...this.paddingClassMap,
-      ...this.variantClassMap,
-      ...this.disabledClassMap,
-    };
+    this.initBaseButtonClassMap();
+    this.setBaseClassMaps();
   }
 
   render() {
     return html`
-      <button type="button" class="${classMap(this.buttonClassMap)}" ?disabled="${this.disabled}">
-        ${when(this.leftIcon, () => html`<span class="${classMap(this.iconClassMap!)}">${this.leftIcon}</span>`)}
-        <span class="${classMap(this.fontClassMap!)}">${this.text}</span>
-        ${when(this.rightIcon, () => html`<span class="${classMap(this.iconClassMap!)}">${this.rightIcon}</span>`)}
+      <button data-testid="art-text-button" type="button" class="${classMap(this.buttonClassMap)}" ?disabled="${this.disabled}">
+        ${when(
+          this.leftIcon,
+          () => html`<span data-testid="art-text-button-left-icon" class="${classMap(this.iconSizeClassMap!)}">${this.leftIcon}</span>`
+        )}
+        <span data-testid="art-text-button-text" class="${classMap(this.fontSizeClassMap!)}">${this.text}</span>
+        ${when(
+          this.rightIcon,
+          () => html`<span data-testid="art-text-button-right-icon" class="${classMap(this.iconSizeClassMap!)}">${this.rightIcon}</span>`
+        )}
       </button>
     `;
   }

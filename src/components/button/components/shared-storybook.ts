@@ -1,29 +1,29 @@
-import { variants } from '@/types/core';
+import { artSizes, artVariants } from '@/types/core';
 import type { Meta } from '@storybook/web-components-vite';
-import { buttonSizes, type IBaseArtButton } from './types';
+import { type IBaseArtButton } from './types';
 
 export const BaseButtonMeta: Meta<IBaseArtButton> = {
   argTypes: {
     variant: {
       control: 'select',
       type: 'string',
-      options: variants,
+      options: artVariants,
       description: 'The button color',
       table: {
         category: 'UI/UX',
-        type: { summary: 'Variant' },
+        type: { summary: 'ArtVariant' },
         defaultValue: { summary: 'primary' },
       },
     },
     size: {
       control: 'select',
       type: 'string',
-      options: buttonSizes,
+      options: artSizes,
       description: 'The button size',
       table: {
         category: 'UI/UX',
-        type: { summary: 'Size' },
-        defaultValue: { summary: 'base' },
+        type: { summary: 'ArtSize' },
+        defaultValue: { summary: 'md' },
       },
     },
     disabled: {
@@ -39,7 +39,7 @@ export const BaseButtonMeta: Meta<IBaseArtButton> = {
   },
   args: {
     variant: 'primary',
-    size: 'base',
+    size: 'md',
     disabled: false,
   },
   parameters: {

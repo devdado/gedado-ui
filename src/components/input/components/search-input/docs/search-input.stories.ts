@@ -10,7 +10,7 @@ import type { IArtSearchInput } from '../types';
 
 const meta: Meta<IArtSearchInput> = {
   ...sharedInputMeta,
-  title: 'Components/Inputs/Search Text',
+  title: 'Components/Inputs/Search Input',
   component: 'art-search-input',
   argTypes: {
     ...sharedInputMeta.argTypes,

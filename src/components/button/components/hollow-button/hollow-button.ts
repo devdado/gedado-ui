@@ -22,12 +22,10 @@ export class ArtHollowButton extends BaseArtButton implements IArtHollowButton {
   ];
 
   protected willUpdate(): void {
-    this.setBaseClasses();
-    this.buttonClassMap = {
-      ...this.layoutButtonClassMap,
-      ...this.borderClassMap,
-      ...this.paddingClassMap,
-      'bg-transparent': true,
+    this.initBaseButtonClassMap();
+
+    // Override defaults
+    this.variantClassMap = {
       'border-accent-primary-light': this.variant === 'primary',
       'text-accent-primary-light': this.variant === 'primary',
       'hover:border-accent-primary-dark': this.variant === 'primary',
@@ -52,7 +50,18 @@ export class ArtHollowButton extends BaseArtButton implements IArtHollowButton {
       'text-status-info-light': this.variant === 'info',
       'hover:border-status-info-dark': this.variant === 'info',
       'hover:text-status-info-dark': this.variant === 'info',
+      'border-status-neutral-light': this.variant === 'neutral',
+      'text-status-neutral-light': this.variant === 'neutral',
+      'hover:border-status-neutral-dark': this.variant === 'neutral',
+      'hover:text-status-neutral-dark': this.variant === 'neutral',
     };
+
+    this.disabledClassMap = {
+      'disabled:border-gray-300': true,
+      'disabled:text-gray-300': true,
+      'disabled:shadow-gray-300': true,
+    };
+
     this.borderClassMap = {
       border: true,
       'rounded-md': true,
@@ -62,27 +71,35 @@ export class ArtHollowButton extends BaseArtButton implements IArtHollowButton {
       'border-status-warning-dark': this.variant === 'warning',
       'border-status-error-dark': this.variant === 'error',
       'border-status-info-dark': this.variant === 'info',
+      'border-status-neutral-dark': this.variant === 'neutral',
     };
-    this.disabledClassMap = {
-      'disabled:border-gray-300': true,
-      'disabled:text-gray-300': true,
-      'disabled:shadow-gray-300': true,
+
+    this.shadowClassMap = {
+      'shadow-none': true,
+    };
+
+    // Set button class maps
+    this.setBaseClassMaps();
+
+    // Add extra classes
+    this.buttonClassMap = {
+      ...this.buttonClassMap,
+      'bg-transparent': true,
     };
   }
 
   render() {
     return html`
-      <button
-        type="button"
-        class="${classMap({
-          ...this.buttonClassMap,
-          ...this.disabledClassMap,
-          ...this.borderClassMap,
-        })}"
-        ?disabled="${this.disabled}">
-        ${when(this.leftIcon, () => html`<span class="${classMap(this.iconClassMap!)}">${this.leftIcon}</span>`)}
-        <span class="${classMap(this.fontClassMap!)}">${this.text}</span>
-        ${when(this.rightIcon, () => html`<span class="${classMap(this.iconClassMap!)}">${this.rightIcon}</span>`)}
+      <button data-testid="art-hollow-button" type="button" class="${classMap(this.buttonClassMap)}" ?disabled="${this.disabled}">
+        ${when(
+          this.leftIcon,
+          () => html`<span data-testid="art-hollow-button-left-icon" class="${classMap(this.iconSizeClassMap!)}">${this.leftIcon}</span>`
+        )}
+        <span data-testid="art-hollow-button-text" class="${classMap(this.fontSizeClassMap!)}">${this.text}</span>
+        ${when(
+          this.rightIcon,
+          () => html`<span data-testid="art-hollow-button-right-icon" class="${classMap(this.iconSizeClassMap!)}">${this.rightIcon}</span>`
+        )}
       </button>
     `;
   }

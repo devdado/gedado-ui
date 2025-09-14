@@ -8,7 +8,7 @@ import type { IArtFlatButton } from '../types';
 
 const meta: Meta<IArtFlatButton> = {
   ...BaseButtonMeta,
-  title: 'Components/Buttons/Flat Button',
+  title: 'Components/Button/Flat Button',
   component: 'art-flat-button',
   argTypes: {
     ...BaseButtonMeta.argTypes,

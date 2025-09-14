@@ -19,12 +19,10 @@ export class ArtFlatButton extends BaseArtButton implements IArtFlatButton {
   ];
 
   protected willUpdate(): void {
-    this.setBaseClasses();
-    this.buttonClassMap = {
-      ...this.layoutButtonClassMap,
-      ...this.paddingClassMap,
-      'bg-transparent': true,
-      'font-semibold': true,
+    this.initBaseButtonClassMap();
+
+    // Override defaults
+    this.variantClassMap = {
       'text-accent-primary': this.variant === 'primary',
       'hover:text-accent-primary-dark': this.variant === 'primary',
       'text-accent-secondary': this.variant === 'secondary',
@@ -37,24 +35,38 @@ export class ArtFlatButton extends BaseArtButton implements IArtFlatButton {
       'hover:text-status-error-dark': this.variant === 'error',
       'text-status-info': this.variant === 'info',
       'hover:text-status-info-dark': this.variant === 'info',
+      'text-status-neutral': this.variant === 'neutral',
+      'hover:text-status-neutral-dark': this.variant === 'neutral',
     };
 
     this.disabledClassMap = {
       'disabled:text-gray-300': true,
       'disabled:text-shadow-gray-300': true,
     };
+
+    this.shadowClassMap = {
+      'shadow-none': true,
+    };
+
+    this.borderClassMap = {
+      'border-none': true,
+    };
+
+    // Set button claass maps
+    this.setBaseClassMaps();
+
+    // Add extra classes
+    this.buttonClassMap = {
+      ...this.buttonClassMap,
+      'bg-transparent': true,
+      'font-semibold': true,
+    };
   }
 
   render() {
     return html`
-      <button
-        type="button"
-        class="${classMap({
-          ...this.buttonClassMap,
-          ...this.disabledClassMap,
-        })}"
-        ?disabled="${this.disabled}">
-        <span class="${classMap(this.fontClassMap!)}">${this.text}</span>
+      <button data-testid="art-flat-button" type="button" class="${classMap(this.buttonClassMap)}" ?disabled="${this.disabled}">
+        <span data-testid="art-flat-button-text" class="${classMap(this.fontSizeClassMap!)}">${this.text}</span>
       </button>
     `;
   }

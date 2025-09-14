@@ -1,5 +1,5 @@
 import { getSharedTailwindStyles } from '@/styles';
-import type { Variant } from '@/types/core';
+import type { ArtVariant } from '@/types/core';
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap, type ClassInfo } from 'lit/directives/class-map.js';
@@ -9,7 +9,7 @@ import type { IArtPanel } from './types';
 @customElement('art-panel')
 export class ArtPanel extends LitElement implements IArtPanel {
   // UI/UX
-  @property({ type: String }) variant?: Variant;
+  @property({ type: String }) variant?: ArtVariant;
 
   // Class Maps
   private panelClassMap?: ClassInfo;
@@ -75,6 +75,7 @@ export class ArtPanel extends LitElement implements IArtPanel {
       'border-status-warning-lightest/30': this.variant === 'warning',
       'border-status-error-lightest/30': this.variant === 'error',
       'border-status-info-lightest/30': this.variant === 'info',
+      'border-status-neutral-lightest/30': this.variant === 'neutral',
     };
   }
 
@@ -87,6 +88,7 @@ export class ArtPanel extends LitElement implements IArtPanel {
       'bg-status-warning-lightest/20': this.variant === 'warning',
       'bg-status-error-lightest/20': this.variant === 'error',
       'bg-status-info-lightest/20': this.variant === 'info',
+      'bg-status-neutral-lightest/20': this.variant === 'neutral',
     };
   }
 
@@ -98,6 +100,7 @@ export class ArtPanel extends LitElement implements IArtPanel {
       'text-status-warning': this.variant === 'warning',
       'text-status-error': this.variant === 'error',
       'text-status-info': this.variant === 'info',
+      'text-status-neutral': this.variant === 'neutral',
     };
   }
 }

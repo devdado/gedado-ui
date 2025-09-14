@@ -19,28 +19,27 @@ export class ArtIconButton extends BaseArtButton implements IArtIconButton {
   ];
 
   protected willUpdate(): void {
-    this.setBaseClasses();
-    this.buttonClassMap = {
-      ...this.layoutButtonClassMap,
-      ...this.paddingClassMap,
-      ...this.shadowClassMap,
-      ...this.borderClassMap,
-      ...this.variantClassMap,
-      ...this.disabledClassMap,
+    this.initBaseButtonClassMap();
+
+    // Override defaults
+    this.iconSizeClassMap = {
+      '!text-[16px]': this.size === 'xs',
+      '!text-[18px]': this.size === 'sm',
+      '!text-[20px]': this.size === 'md',
+      '!text-[22px]': this.size === 'lg',
+      '!text-[24px]': this.size === 'xl',
+      '!text-[26px]': this.size === '2xl',
+      '!text-[28px]': this.size === '3xl',
     };
 
-    this.fontClassMap = {
-      '!text-[16px]': this.size === 'tiny',
-      '!text-[18px]': this.size === 'small',
-      '!text-[20px]': this.size === 'base',
-      '!text-[22px]': this.size === 'large',
-    };
+    // Init base button class maps
+    this.setBaseClassMaps();
   }
 
   render() {
     return html`
-      <button type="button" class="${classMap(this.buttonClassMap)}" ?disabled="${this.disabled}">
-        <span class="${classMap(this.fontClassMap!)} material-symbols-rounded">${this.icon}</span>
+      <button data-testid="art-icon-button" type="button" class="${classMap(this.buttonClassMap)}" ?disabled="${this.disabled}">
+        <span data-testid="art-icon-button-icon" class="${classMap(this.iconSizeClassMap!)} material-symbols-rounded">${this.icon}</span>
       </button>
     `;
   }

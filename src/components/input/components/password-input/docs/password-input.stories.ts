@@ -10,7 +10,7 @@ import type { IArtPasswordInput } from '../types';
 
 const meta: Meta<IArtPasswordInput> = {
   ...sharedInputMeta,
-  title: 'Components/Inputs/Password Text',
+  title: 'Components/Inputs/Password Input',
   component: 'art-password-input',
   argTypes: {
     ...sharedInputMeta.argTypes,

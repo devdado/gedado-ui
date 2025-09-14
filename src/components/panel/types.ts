@@ -1,6 +1,6 @@
-import type { Variant } from '@/types/core';
+import type { ArtVariant } from '@/types/core';
 
 export interface IArtPanel {
-  variant?: Variant;
+  variant?: ArtVariant;
   title?: string;
 }

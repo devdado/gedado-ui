@@ -175,4 +175,10 @@
   --color-status-info: var(--color-indigo-500);
   --color-status-info-dark: color-mix(in oklab, var(--color-status-info) 80%, black);
   --color-status-info-darkest: color-mix(in oklab, var(--color-status-info) 50%, black);
+  /* Neutral */
+  --color-status-neutral-lightest: color-mix(in oklab, var(--color-neutral-info) 70%, white);
+  --color-status-neutral-light: color-mix(in oklab, var(--color-neutral-info) 85%, white);
+  --color-status-neutral: var(--color-neutral-500);
+  --color-status-neutral-dark: color-mix(in oklab, var(--color-neutral-info) 80%, black);
+  --color-status-neutral-darkest: color-mix(in oklab, var(--color-neutral-info) 50%, black);
 }

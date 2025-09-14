@@ -1,15 +1,15 @@
-import type { Variant } from '@/types/core';
+import type { ArtVariant } from '@/types/core';
 
 export interface IArtRadioButton {
   id: string;
   value: string;
   label: string;
-  variant?: Variant;
 }
 
 export interface IArtRadioGroup {
   name: string;
   legend: string;
+  variant: ArtVariant;
   disabled: boolean;
   value?: string;
   layout: RadioGroupLayout;
