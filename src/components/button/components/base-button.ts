@@ -1,23 +1,23 @@
 import { getSharedTailwindStyles } from '@/styles';
-import type { Variant } from '@/types/core';
+import type { ArtSize, ArtVariant } from '@/types/core';
 import { LitElement, css } from 'lit';
 import { property } from 'lit/decorators.js';
 import type { ClassInfo } from 'lit/directives/class-map.js';
-import type { ButtonSize, IBaseArtButton } from './types';
+import type { IBaseArtButton } from './types';
 
 export abstract class BaseArtButton extends LitElement implements IBaseArtButton {
   // UI/UX
-  @property({ type: String }) size: ButtonSize = 'base';
-  @property({ type: String }) variant: Variant = 'primary';
+  @property({ type: String }) size: ArtSize = 'md';
+  @property({ type: String }) variant: ArtVariant = 'primary';
   @property({ type: Boolean }) disabled = false;
 
   // Class Maps
-  abstract buttonClassMap: ClassInfo;
-  protected shadowClassMap?: ClassInfo;
   protected borderClassMap?: ClassInfo;
+  protected buttonClassMap?: ClassInfo;
+  protected fontSizeClassMap?: ClassInfo;
+  protected iconSizeClassMap?: ClassInfo;
   protected paddingClassMap?: ClassInfo;
-  protected fontClassMap?: ClassInfo;
-  protected iconClassMap?: ClassInfo;
+  protected shadowClassMap?: ClassInfo;
   protected variantClassMap?: ClassInfo;
 
   protected layoutButtonClassMap: ClassInfo = {
@@ -50,10 +50,13 @@ export abstract class BaseArtButton extends LitElement implements IBaseArtButton
 
   private setPaddingClassMap() {
     this.paddingClassMap = {
-      'p-1': this.size === 'tiny',
-      'p-1.5': this.size === 'small',
-      'p-2': this.size === 'base',
-      'p-2.5': this.size === 'large',
+      'p-1': this.size === 'xs',
+      'p-1.5': this.size === 'sm',
+      'p-2': this.size === 'md',
+      'p-2.5': this.size === 'lg',
+      'p-3': this.size === 'xl',
+      'p-3.5': this.size === '2xl',
+      'p-4': this.size === '3xl',
     };
   }
 
@@ -66,6 +69,7 @@ export abstract class BaseArtButton extends LitElement implements IBaseArtButton
       'shadow-status-warning-light': this.variant === 'warning',
       'shadow-status-error-light': this.variant === 'error',
       'shadow-status-info-light': this.variant === 'info',
+      'shadow-status-neutral-light': this.variant === 'neutral',
     };
   }
 
@@ -75,22 +79,28 @@ export abstract class BaseArtButton extends LitElement implements IBaseArtButton
     };
   }
 
-  private setFontClassMap() {
-    this.fontClassMap = {
-      'text-xs': this.size === 'tiny',
-      'text-sm': this.size === 'small',
-      'text-base': this.size === 'base',
-      'text-lg': this.size === 'large',
+  private setFontSizeClassMap() {
+    this.fontSizeClassMap = {
+      'text-xs': this.size === 'xs',
+      'text-sm': this.size === 'sm',
+      'text-base': this.size === 'md',
+      'text-lg': this.size === 'lg',
+      'text-xl': this.size === 'xl',
+      'text-2xl': this.size === '2xl',
+      'text-3xl': this.size === '3xl',
       'leading-none': true,
     };
   }
 
-  private setIconClassMap() {
-    this.iconClassMap = {
-      '!text-[12px]': this.size === 'tiny',
-      '!text-[14px]': this.size === 'small',
-      '!text-[16px]': this.size === 'base',
-      '!text-[18px]': this.size === 'large',
+  private setIconSizeClassMap() {
+    this.iconSizeClassMap = {
+      '!text-[12px]': this.size === 'xs',
+      '!text-[14px]': this.size === 'sm',
+      '!text-[16px]': this.size === 'md',
+      '!text-[18px]': this.size === 'lg',
+      '!text-[20px]': this.size === 'xl',
+      '!text-[22px]': this.size === '2xl',
+      '!text-[24px]': this.size === '3xl',
       'material-symbols-rounded': true,
     };
   }
@@ -115,15 +125,29 @@ export abstract class BaseArtButton extends LitElement implements IBaseArtButton
       'bg-status-info-light': this.variant === 'info',
       'text-status-info-darkest': this.variant === 'info',
       'hover:bg-status-info-lightest': this.variant === 'info',
+      'bg-status-neutral-light': this.variant === 'neutral',
+      'text-status-neutral-darkest': this.variant === 'neutral',
+      'hover:bg-status-neutral-lightest': this.variant === 'neutral',
     };
   }
 
-  protected setBaseClasses() {
+  protected initBaseButtonClassMap() {
     this.setPaddingClassMap();
     this.setShadowClassMap();
     this.setBorderClassMap();
-    this.setFontClassMap();
-    this.setIconClassMap();
+    this.setFontSizeClassMap();
+    this.setIconSizeClassMap();
     this.setVariantClassMap();
+  }
+
+  protected setBaseClassMaps() {
+    this.buttonClassMap = {
+      ...this.layoutButtonClassMap,
+      ...this.disabledClassMap,
+      ...this.paddingClassMap,
+      ...this.shadowClassMap,
+      ...this.borderClassMap,
+      ...this.variantClassMap,
+    };
   }
 }

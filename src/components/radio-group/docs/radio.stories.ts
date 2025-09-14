@@ -1,3 +1,4 @@
+import { artVariants } from '@/types/core';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import '../radio-group';
 import { ArtRadioGroup } from '../radio-group';
@@ -23,6 +24,18 @@ const meta: Meta<IArtRadioGroup> = {
         type: { summary: 'string' },
         defaultValue: { summary: 'Radio Group' },
       },
+    },
+    variant: {
+      control: 'select',
+      type: 'string',
+      options: artVariants,
+      description: 'The radio buttons color',
+      table: {
+        category: 'UI/UX',
+        type: { summary: 'ArtVariant' },
+        defaultValue: { summary: 'primary' },
+      },
+      required: false,
     },
     disabled: {
       control: 'boolean',
@@ -67,6 +80,7 @@ const meta: Meta<IArtRadioGroup> = {
   args: {
     name: 'radio-165455f4-3c7d-4afe-b520-ad8ef6c124f7',
     legend: 'Radio Group',
+    variant: 'primary',
     disabled: false,
     value: undefined,
     layout: 'horizontal',
@@ -87,6 +101,7 @@ const Template = (args: IArtRadioGroup) => {
   const radioGroup = new ArtRadioGroup();
   radioGroup.name = args.name;
   radioGroup.legend = args.legend;
+  radioGroup.variant = args.variant;
   radioGroup.layout = args.layout;
   radioGroup.disabled = args.disabled;
   radioGroup.value = args.value;
@@ -109,26 +124,6 @@ export const Layout: Story = {
 export const Variant: Story = {
   render: Template,
   args: {
-    radioButtons: [
-      { id: 'demo-1', value: '1', label: 'Primary', variant: 'primary' },
-      { id: 'demo-2', value: '2', label: 'Auxiliary', variant: 'primary' },
-      { id: 'demo-3', value: '3', label: 'Success', variant: 'primary' },
-      { id: 'demo-4', value: '4', label: 'Warning', variant: 'primary' },
-      { id: 'demo-5', value: '5', label: 'Error', variant: 'primary' },
-    ],
-  },
-};
-
-export const Mixed: Story = {
-  render: Template,
-  name: 'Mixed Variants',
-  args: {
-    radioButtons: [
-      { id: 'demo-1', value: '1', label: 'Primary', variant: 'primary' },
-      { id: 'demo-2', value: '2', label: 'Auxiliary', variant: 'auxiliary' },
-      { id: 'demo-3', value: '3', label: 'Success', variant: 'success' },
-      { id: 'demo-4', value: '4', label: 'Warning', variant: 'warning' },
-      { id: 'demo-5', value: '5', label: 'Error', variant: 'error' },
-    ],
+    variant: 'success',
   },
 };

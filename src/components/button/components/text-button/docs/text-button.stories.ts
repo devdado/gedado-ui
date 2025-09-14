@@ -9,7 +9,7 @@ import type { IArtTextButton } from '../types';
 
 const meta: Meta<IArtTextButton> = {
   ...BaseButtonMeta,
-  title: 'Components/Buttons/Text Button',
+  title: 'Components/Button/Text Button',
   component: 'art-text-button',
   argTypes: {
     ...BaseButtonMeta.argTypes,

@@ -1,4 +1,5 @@
 import { getSharedTailwindStyles } from '@/styles';
+import type { ArtVariant } from '@/types/core';
 import { generateSecureUID } from '@/utilities/string';
 import { LitElement, css, html, type PropertyValues } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
@@ -11,6 +12,7 @@ export class ArtRadioGroup extends LitElement implements IArtRadioGroup {
   // UI/UX
   @property({ type: String }) name = `radio-${generateSecureUID()}`;
   @property({ type: String }) legend = 'Radio Group';
+  @property({ type: String }) variant: ArtVariant = 'primary';
   @property({ type: Array }) radioButtons: IArtRadioButton[] = [];
   @property({ type: String }) layout: RadioGroupLayout = 'horizontal';
 
@@ -21,6 +23,7 @@ export class ArtRadioGroup extends LitElement implements IArtRadioGroup {
   // State
   @state() selectedValue?: string;
 
+  private radioClassMap?: ClassInfo;
   private layoutClassMap?: ClassInfo;
   private labelClassMap?: ClassInfo;
 
@@ -39,13 +42,23 @@ export class ArtRadioGroup extends LitElement implements IArtRadioGroup {
   connectedCallback() {
     super.connectedCallback();
     this.selectedValue = this.value;
-    this.setLayoutClassMap();
-    this.setLabelClassMap();
   }
 
   protected willUpdate(_changedProperties: PropertyValues): void {
     if (_changedProperties.has('value')) {
       this.selectedValue = this.value;
+    }
+
+    if (_changedProperties.has('variant')) {
+      this.setRadioCladdMap();
+    }
+
+    if (_changedProperties.has('disabled')) {
+      this.setLabelClassMap();
+    }
+
+    if (_changedProperties.has('layout')) {
+      this.setLayoutClassMap();
     }
   }
 
@@ -61,7 +74,7 @@ export class ArtRadioGroup extends LitElement implements IArtRadioGroup {
   // Rendering
 
   private renderRadioButton(radio: IArtRadioButton) {
-    const radioClassMap = this.setRadioButtonVariantClassMap(radio);
+    // const radioClassMap = this.setRadioButtonVariantClassMap(radio);
 
     return html`
       <div class="flex gap-2">
@@ -71,7 +84,7 @@ export class ArtRadioGroup extends LitElement implements IArtRadioGroup {
           id="${radio.id}"
           name="${this.name}"
           value="${radio.value}"
-          class="${classMap(radioClassMap)}"
+          class="${classMap(this.radioClassMap!)}"
           ?checked="${this.value && this.value === radio.value ? true : false}"
           ?disabled="${this.disabled}"
           @change="${this.onChange}" />
@@ -115,19 +128,15 @@ export class ArtRadioGroup extends LitElement implements IArtRadioGroup {
     };
   }
 
-  private setRadioButtonVariantClassMap(radio: IArtRadioButton): ClassInfo {
-    return radio.variant
-      ? {
-          'accent-accent-primary': radio.variant === 'primary',
-          'accent-accent-secondary': radio.variant === 'secondary',
-          'accent-status-success': radio.variant === 'success',
-          'accent-status-warning': radio.variant === 'warning',
-          'accent-status-error': radio.variant === 'error',
-          'accent-status-info': radio.variant === 'info',
-        }
-      : {
-          'accent-slate-800': true,
-        };
+  private setRadioCladdMap() {
+    this.radioClassMap = {
+      'accent-accent-primary': this.variant === 'primary',
+      'accent-accent-secondary': this.variant === 'secondary',
+      'accent-status-success': this.variant === 'success',
+      'accent-status-warning': this.variant === 'warning',
+      'accent-status-error': this.variant === 'error',
+      'accent-status-info': this.variant === 'info',
+    };
   }
 }
 

@@ -1,4 +1,4 @@
-import { variants } from '@/types/core';
+import { artVariants } from '@/types/core';
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -12,7 +12,7 @@ const meta: Meta<IArtPanel> = {
     variant: {
       control: 'select',
       type: 'string',
-      options: variants,
+      options: artVariants,
       description: 'The panel color',
       table: {
         category: 'UI/UX',

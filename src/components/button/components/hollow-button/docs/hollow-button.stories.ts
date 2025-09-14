@@ -9,7 +9,7 @@ import type { IArtHollowButton } from '../types';
 
 const meta: Meta<IArtHollowButton> = {
   ...BaseButtonMeta,
-  title: 'Components/Buttons/Hollow Button',
+  title: 'Components/Button/Hollow Button',
   component: 'art-hollow-button',
   argTypes: {
     ...BaseButtonMeta.argTypes,

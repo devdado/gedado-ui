@@ -1,10 +1,7 @@
-import type { Variant } from '@/types/core';
-
-export const buttonSizes = ['tiny', 'small', 'base', 'large'];
-export type ButtonSize = (typeof buttonSizes)[number];
+import type { ArtSize, ArtVariant } from '@/types/core';
 
 export interface IBaseArtButton {
-  variant: Variant;
-  size: ButtonSize;
+  variant: ArtVariant;
+  size: ArtSize;
   disabled: boolean;
 }

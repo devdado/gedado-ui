@@ -1,6 +1,6 @@
 import { renderValidationMessage } from '@/shared/parts';
 import { getSharedTailwindStyles } from '@/styles';
-import type { Variant } from '@/types/core';
+import type { ArtVariant } from '@/types/core';
 import { generateSecureUID } from '@/utilities/string';
 import { LitElement, css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
@@ -14,7 +14,7 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
   @property({ type: String, attribute: false }) id: string;
   @property({ type: String }) name: string;
   @property({ type: String }) label?: string;
-  @property({ type: String }) variant: Variant = 'primary';
+  @property({ type: String }) variant: ArtVariant = 'primary';
 
   // Validation
   @property({ type: Boolean, attribute: true }) checked = false;
@@ -178,6 +178,9 @@ export class ArtCheckbox extends LitElement implements IArtCheckbox {
       'checked:bg-status-info': this.variant === 'info',
       'checked:before:bg-status-info': this.variant === 'info',
       'checked:border-status-info': this.variant === 'info',
+      'checked:bg-status-neutral': this.variant === 'neutral',
+      'checked:before:bg-status-neutral': this.variant === 'neutral',
+      'checked:border-status-neutral': this.variant === 'neutral',
     };
   }
 
