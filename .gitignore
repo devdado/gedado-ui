@@ -29,3 +29,6 @@ dist-ssr
 
 # Node
 .npmrc
+
+*storybook.log
+storybook-static
