@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Gedado UI",
   "type": "module",
-  "main": "dist/devdado-ui.umd.js",
-  "module": "dist/devdado-ui.es.js",
+  "main": "dist/gedado-ui.umd.js",
+  "module": "dist/gedado-ui.es.js",
   "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
