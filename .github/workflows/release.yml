@@ -45,6 +45,8 @@ jobs:
 
       - name: Semantic Release
         id: semantic
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm exec semantic-release
 
       - name: Publish to GitHub Packages
