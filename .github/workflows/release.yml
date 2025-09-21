@@ -1,4 +1,5 @@
 name: Release
+
 on:
   push:
     branches:
@@ -11,6 +12,10 @@ jobs:
     permissions:
       contents: write # Needed to create releases and write to the repository
       packages: write # Needed to publish to the GitHub Package Registry
+      id-token: write # Add this to allow Semantic Release to create a new tag
+    env:
+      NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,7 +26,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22.16.0'
-          registry-url: 'https://npm.pkg.github.com' # Configure npm to use the GitHub Package Registry
+          registry-url: 'https://registry.npmjs.org' # Explicitly set the registry for dependency installation
 
       - name: Install pnpm
         run: npm install -g pnpm
@@ -30,12 +35,15 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm test
+        run: pnpm run test:once
 
       - name: Build project
-        run: pnpm build
+        run: pnpm run build
 
       - name: Semantic Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: semantic
         run: pnpm exec semantic-release
+
+      - name: Publish to GitHub Packages
+        if: steps.semantic.outputs.new-version
+        run: pnpm publish --registry=https://npm.pkg.github.com
