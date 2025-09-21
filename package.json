@@ -8,8 +8,9 @@
   "types": "dist/types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Artemis-pets/Artemis-components.git"
+    "url": "git@github.com:devdado/gedado-ui.git"
   },
+  "homepage": "https://github.com/devdado/gedado-ui#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
