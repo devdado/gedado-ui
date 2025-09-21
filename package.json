@@ -1,6 +1,6 @@
 {
   "name": "@devdado/gedado-ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Gedado UI",
   "type": "module",
   "main": "dist/gedado-ui.umd.js",
