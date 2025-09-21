@@ -8,7 +8,7 @@
       "DOM",
       "DOM.Iterable"
     ] /* Bibliotecas de tipo para incluir en la compilación. 'DOM' y 'DOM.Iterable' son esenciales para el desarrollo web. */,
-    "baseUrl": "." /**/,
+    "baseUrl": ".",
     "useDefineForClassFields": false /* Controla el comportamiento de las propiedades de clase. 'false' es mejor para la compatibilidad con decoradores y Lit. */,
     "experimentalDecorators": true /* Habilita la sintaxis experimental de decoradores, necesaria para `@customElement`, `@property`, etc. */,
     "emitDecoratorMetadata": true /* Emite metadatos de diseño para decoradores. A menudo necesario junto con `experimentalDecorators`. */,
