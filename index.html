@@ -7,7 +7,6 @@
     <title>Vite + Lit + TS</title>
     <link rel="stylesheet" href="./src/styles/tailwind.css" />
     <script type="module" src="./src/components"></script>
-    <script type="module" src="./index.ts"></script>
   </head>
 
   <body class="text-default-text dark:text-default-text-dark bg-surface pb-14 dark:bg-surface-dark">
@@ -18,51 +17,22 @@
         <hr class="border border-accent-primary" />
         <article class="flex flex-col gap-5">
           <h1 class="text-3xl font-semibold text-text-default uppercase">Normal</h1>
-          <h1 class="border border-border-default text-3xl font-semibold text-text-muted uppercase">Muted</h1>
-          <h1 class="border border-border-default bg-disabled text-3xl font-semibold text-text-disabled uppercase">Disabled</h1>
+          <h1 class="border border-border-default text-3xl font-semibold text-text-muted uppercase">
+            Muted
+          </h1>
+          <h1
+            class="border border-border-default bg-disabled text-3xl font-semibold text-text-disabled uppercase">
+            Disabled
+          </h1>
         </article>
-      </section>
-
-      <!-- Panel -->
-      <section class="flex flex-col gap-5">
-        <h1 class="text-3xl font-semibold text-accent-primary uppercase">Panels</h1>
-        <hr class="border border-accent-primary" />
-
-        <art-panel title="Default">
-          <p>Default Panel</p>
-        </art-panel>
-
-        <art-panel title="Primary" variant="primary">
-          <p>Primary Panel</p>
-        </art-panel>
-
-        <art-panel title="Secondary" variant="secondary">
-          <p>Secondary Panel</p>
-        </art-panel>
-
-        <art-panel title="Success" variant="success">
-          <p>Success Panel</p>
-        </art-panel>
-
-        <art-panel title="Warning" variant="warning">
-          <p>Warning Panel</p>
-        </art-panel>
-
-        <art-panel title="Error" variant="error">
-          <p>Error Panel</p>
-        </art-panel>
-
-        <art-panel title="Info" variant="info">
-          <p>Info Panel</p>
-        </art-panel>
       </section>
 
       <!-- Buttons -->
       <section class="flex flex-col gap-5">
         <h1 class="text-3xl font-semibold text-accent-primary uppercase">Buttons</h1>
         <hr class="border border-accent-primary" />
-
-        <art-panel title="Text Buttons">
+        <article class="flex flex-col gap-5">
+          <h2 class="text-xl text-accent-primary">Text Buttons</h2>
           <div class="flex flex-wrap justify-center gap-2">
             <art-text-button text="disabled" disabled="true"></art-text-button>
             <art-text-button text="primary"></art-text-button>
@@ -72,9 +42,9 @@
             <art-text-button variant="error" text="error"></art-text-button>
             <art-text-button variant="info" text="info"></art-text-button>
           </div>
-        </art-panel>
-
-        <art-panel title="icon Buttons">
+        </article>
+        <article class="flex flex-col gap-5">
+          <h2 class="text-xl text-accent-primary">Icon Buttons</h2>
           <div class="flex flex-wrap justify-center gap-2">
             <art-icon-button disabled></art-icon-button>
             <art-icon-button></art-icon-button>
@@ -84,9 +54,9 @@
             <art-icon-button variant="error"></art-icon-button>
             <art-icon-button variant="info"></art-icon-button>
           </div>
-        </art-panel>
-
-        <art-panel title="Hollow Buttons">
+        </article>
+        <article class="flex flex-col gap-5">
+          <h2 class="text-xl text-accent-primary">Hollow Buttons</h2>
           <div class="flex flex-wrap justify-center gap-2">
             <art-hollow-button text="primary" disabled></art-hollow-button>
             <art-hollow-button text="primary"></art-hollow-button>
@@ -96,9 +66,9 @@
             <art-hollow-button text="error" variant="error"></art-hollow-button>
             <art-hollow-button text="info" variant="info"></art-hollow-button>
           </div>
-        </art-panel>
-
-        <art-panel title="Flat Buttons">
+        </article>
+        <article class="flex flex-col gap-5">
+          <h2 class="text-xl text-accent-primary">Flat Buttons</h2>
           <div class="flex flex-wrap justify-center gap-2">
             <art-flat-button text="primary" disabled></art-flat-button>
             <art-flat-button text="primary"></art-flat-button>
@@ -108,80 +78,62 @@
             <art-flat-button text="error" variant="error"></art-flat-button>
             <art-flat-button text="info" variant="info"></art-flat-button>
           </div>
-        </art-panel>
+        </article>
       </section>
 
       <!-- Inputs -->
       <section class="flex flex-col gap-5">
-        <h1 class="text-3xl font-semibold text-accent-primary uppercase">Inputs</h1>
+        <h1 class="text-3xl font-semibold text-text-default uppercase">Inputs</h1>
         <hr class="border border-accent-primary" />
-
-        <art-panel title="Text Inputs">
-          <div class="flex w-1/2 flex-col gap-2">
-            <art-text-input label="First Name" value="Gerardo" minlength="5" placeholder="Write your Firstname" required> </art-text-input>
-            <art-text-input label="Last Name" value="heredia" pattern="[a-z]{1,10}" required> </art-text-input>
+        <article class="flex flex-col gap-5">
+          <h2 class="text-xl text-accent-primary">Text Input</h2>
+          <div class="flex flex-col gap-2">
+            <div class="w-1/2">
+              <art-text-input
+                id="firstname-input"
+                name="firstname-input"
+                title="Value must be a lowercase string between 1 and 5 characters"
+                label="First Name"
+                value="Gerardo"
+                minlength="5"
+                placeholder="Write your Firstname"
+                required>
+              </art-text-input>
+            </div>
+            <art-text-input
+              label="Last Name"
+              name="lastname-input"
+              value="heredia"
+              pattern="[a-z]{1,10}"
+              required>
+            </art-text-input>
+            <art-email-input label="Email" name="number-input" required></art-email-input>
+            <art-number-input
+              label="Counter"
+              name="number-input"
+              step="3"
+              min="0"
+              required></art-number-input>
           </div>
-        </art-panel>
-
-        <art-panel title="Email Input">
-          <div class="flex w-1/2 flex-col gap-2">
-            <art-email-input label="Email" required></art-email-input>
-          </div>
-        </art-panel>
-
-        <art-panel title="Number Input">
-          <div class="flex w-1/2 flex-col gap-2">
-            <art-number-input label="Counter" step="3" min="0" required> </art-number-input>
-          </div>
-        </art-panel>
-
-        <art-panel title="Password Input">
-          <div class="flex w-1/2 flex-col gap-2">
-            <art-password-input label="Password" required> </art-password-input>
-          </div>
-        </art-panel>
-
-        <art-panel title="Checkbox">
-          <div class="flex w-1/2 flex-col gap-2">
-            <art-checkbox label="Primary" disabled></art-checkbox>
-            <art-checkbox label="Secondary" variant="secondary"></art-checkbox>
-            <art-checkbox label="Success" variant="success"></art-checkbox>
-            <art-checkbox label="Warning" variant="warning"></art-checkbox>
-            <art-checkbox label="Error" variant="error"></art-checkbox>
-            <art-checkbox label="Info" variant="info"></art-checkbox>
-          </div>
-        </art-panel>
-
-        <art-panel title="Radio Group">
-          <div class="flex w-1/2 flex-col gap-2">
-            <art-radio-group id="radio-group" name="demo-radio"></art-radio-group>
-          </div>
-        </art-panel>
-      </section>
-
-      <!-- TextArea -->
-      <section class="flex flex-col gap-5">
-        <h1 class="text-3xl font-semibold text-accent-primary uppercase">TextArea</h1>
-        <hr class="border border-accent-primary" />
-
-        <art-panel>
-          <div class="flex w-1/2 flex-col gap-2">
-            <art-textarea placeholder="Write long text" label="Long Message" autoGrow required></art-textarea>
-          </div>
-        </art-panel>
-      </section>
-
-      <!-- Select -->
-      <section class="flex flex-col gap-5">
-        <h1 class="text-3xl font-semibold text-accent-primary uppercase">Select</h1>
-        <hr class="border border-accent-primary" />
-
-        <art-panel>
-          <div class="flex w-1/2 flex-col gap-2">
-            <art-select id="fruit-select" label="Fruits" required></art-select>
-          </div>
-        </art-panel>
+        </article>
       </section>
     </section>
+
+    <script>
+      document.addEventListener('art-input-input', event => {
+        console.log('art-input-input', event);
+      });
+
+      document.addEventListener('art-input-change', event => {
+        console.log('art-input-change', event);
+      });
+
+      const firstnameInput = document.getElementById('firstname-input');
+      const datalist = {
+        name: 'names',
+        options: ['Gerardo', 'Daniel', 'César', 'Alonso', 'Aida', 'Diana'],
+      };
+      firstnameInput.datalist = datalist;
+    </script>
   </body>
 </html>

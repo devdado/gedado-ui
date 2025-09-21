@@ -1,19 +1,15 @@
-/// <reference types="vitest/config" />
 import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
-// More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
   plugins: [
     tailwindcss(),
     dts({
-      outDir: 'dist/types',
-      // Matches your current declarationDir
-      entryRoot: 'src',
-      // Important for path remapping
+      outDir: 'dist/types', // Matches your current declarationDir
+      entryRoot: 'src', // Important for path remapping
       // Optional: Exclude test files from declarations
       exclude: ['src/**/*.test.ts'],
       // Optional: Clean output directory before building
@@ -27,14 +23,12 @@ export default defineConfig({
   build: {
     // Modo librería
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      // Punto de entrada principal de tu librería
-      name: 'ArtemisUI',
-      // Nombre global de la librería (para formatos UMD)
-      fileName: format => `artemis-ui.${format}.js`,
-      // Nombre del archivo de salida
+      entry: resolve(__dirname, 'src/index.ts'), // Punto de entrada principal de tu librería
+      name: 'ArtemisUI', // Nombre global de la librería (para formatos UMD)
+      fileName: format => `artemis-ui.${format}.js`, // Nombre del archivo de salida
       formats: ['es', 'umd'], // Formatos de salida: ES Module (moderno) y UMD (compatibilidad más amplia)
     },
+
     // Configuración específica de Rollup (Vite usa Rollup internamente)
     rollupOptions: {
       // **CRUCIAL:** Declara las dependencias de Lit como externas.
@@ -43,8 +37,7 @@ export default defineConfig({
       external: [
         'lit',
         'lit/decorators.js',
-        'lit/directives/class-map.js',
-        // Añade cualquier otra importación específica de Lit que uses
+        'lit/directives/class-map.js', // Añade cualquier otra importación específica de Lit que uses
         'lit/directives/style-map.js',
         'lit/directives/if-defined.js',
         'lit/async-directive.js',
@@ -73,7 +66,10 @@ export default defineConfig({
       // Tailwind 4 still does not add sourcemaps, so we hide a sourcemaps warning during build
       // This does not affect the build process
       onwarn(warning, warn) {
-        if (warning.code === 'SOURCEMAP_BROKEN' && warning.plugin === '@tailwindcss/vite:generate:build') {
+        if (
+          warning.code === 'SOURCEMAP_BROKEN' &&
+          warning.plugin === '@tailwindcss/vite:generate:build'
+        ) {
           return;
         }
         warn(warning);
@@ -81,15 +77,13 @@ export default defineConfig({
     },
     // Desactiva la minificación para una depuración más fácil en desarrollo
     // O déjalo en 'esbuild' para producción para una minificación rápida.
-    minify: true,
-    // true para producción, 'esbuild' o 'terser'
-    sourcemap: true,
-    // Genera sourcemaps para facilitar la depuración
+    minify: true, // true para producción, 'esbuild' o 'terser'
+    sourcemap: true, // Genera sourcemaps para facilitar la depuración
     emptyOutDir: true,
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@/': fileURLToPath(new URL('./src/', import.meta.url)),
     },
   },
 });
