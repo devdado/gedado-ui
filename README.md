@@ -26,8 +26,8 @@ npm install -g pnpm
 Then clone the repo and install dependencies:
 
 ```bash
-git clone git@github.com:Artemis-ZckrDev/Artemis-frontend.git artemis-ui
-cd artemis-ui
+git clone git@github.com:devdado/gedado-ui.git gedado-ui
+cd gedado-ui
 npm install
 ```
 
@@ -148,11 +148,11 @@ pnpm publish
 Then use it in another app:
 
 ```bash
-npm install artemis-ui
+npm install @devdado/gedado-ui
 ```
 
 ```ts
-import { ArtMyComponent } from 'artemis-ui';
+import { ArtMyComponent } from 'gedado-ui';
 ```
 
 ```html
