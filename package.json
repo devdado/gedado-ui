@@ -1,14 +1,15 @@
 {
-  "name": "@artemis/artemis-ui",
+  "name": "@devdado/gedado-ui",
   "version": "0.0.1",
-  "description": "Artemis UI",
+  "description": "Gedado UI",
   "type": "module",
-  "main": "dist/artemis-ui.umd.js",
-  "module": "dist/artemis-ui.es.js",
+  "main": "dist/gedado-ui.umd.js",
+  "module": "dist/gedado-ui.es.js",
   "types": "dist/types/index.d.ts",
+  "packageManager": "pnpm@10.17.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Artemis-pets/Artemis-components.git"
+    "url": "https://github.com/devdado/gedado-ui.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -109,11 +110,11 @@
     ".": {
       "import": {
         "types": "./dist/types/index.d.ts",
-        "default": "./dist/artemis-ui.es.js"
+        "default": "./dist/gedado-ui.es.js"
       },
       "require": {
         "types": "./dist/types/index.d.ts",
-        "default": "./dist/artemis-ui.umd.js"
+        "default": "./dist/gedado-ui.umd.js"
       }
     }
   },
