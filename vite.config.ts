@@ -29,9 +29,9 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       // Punto de entrada principal de tu librería
-      name: 'ArtemisUI',
+      name: 'GedadoUI',
       // Nombre global de la librería (para formatos UMD)
-      fileName: format => `artemis-ui.${format}.js`,
+      fileName: format => `gedado-ui.${format}.js`,
       // Nombre del archivo de salida
       formats: ['es', 'umd'], // Formatos de salida: ES Module (moderno) y UMD (compatibilidad más amplia)
     },
@@ -63,7 +63,7 @@ export default defineConfig({
           'lit/async-directive.js': 'LitAsyncDirective',
           // '@lit-labs/motion': 'LitLabsMotion', // Ejemplo de un global para @lit-labs
         },
-        assetFileNames: 'assets/styles/artemis-ui.css',
+        assetFileNames: 'assets/styles/gedado-ui.css',
         // Mantiene los imports como están para ESM, útil si la aplicación consumidora usa importmaps
         // o si los paquetes externos están en el mismo `node_modules` de la app.
         // También puedes controlar la estructura del chunk (opcional)
