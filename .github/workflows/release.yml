@@ -7,13 +7,6 @@ on:
   push:
     branches: [main]
 
-permissions:
-  contents: write        # allow creating tags & releases
-  packages: write        # allow publishing packages to GitHub Packages
-  issues: write          # optional: to let semantic-release comment on issues
-  pull-requests: write   # optional
-  id-token: write        # optional; needed if using OIDC for npm provenance
-
 jobs:
   ci:
     name: CI (Lint, Test, Build)
