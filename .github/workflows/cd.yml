@@ -1,0 +1,43 @@
+name: Continuous Delivery (CD)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  
+jobs:
+  delivery:
+    name: CD (build, publish)
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetches all history for semantic-release to analyze
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          registry-url: 'https://npm.pkg.github.com' # Configure npm to use the GitHub Package Registry
+          scope: '@devdado'    # important: matches package scope
+
+      - name: Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Build library
+        run: pnpm run build
+      
+      - name: Publish to GitHub Registry via semantic-release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # used by npm client to auth to GitHub Packages
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # used by @semantic-release/github
+        run: pnpm exec semantic-release
