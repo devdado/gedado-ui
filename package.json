@@ -37,7 +37,6 @@
     "lint": "eslint --config eslint.config.ts .",
     "lint:fix": "eslint --config eslint.config.ts . --fix",
     "check:all": "npm run prettier:check && npm run lint",
-    "prepare": "husky install",
     "cz": "cz",
     "test": "vitest",
     "test:ui": "vitest --ui",
